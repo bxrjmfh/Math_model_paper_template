@@ -2,7 +2,7 @@
 \ProvidesClass{my_paper}[2021/08/17 My custom CV class] 
 \LoadClass[12pt]{article}
 
-\newcommand{\lunwenbiaoti}{\fontsize{15.75pt}{0}\heiti 这里换成你的论文的标题}
+\newcommand{\lunwenbiaoti}{\fontsize{15.75pt}{0}\heiti 基于元胞自动机的矿料仓库系统}
 \newcommand{\zhaiyao}{\fontsize{14pt}{0}\heiti 摘要}
 
 \RequirePackage{titlesec}

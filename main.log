@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  23 APR 2022 20:08
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  24 APR 2022 21:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -622,47 +622,98 @@ LaTeX Font Info:    Redeclaring math symbol \imathscr on input line 2646.
 LaTeX Font Info:    Redeclaring math symbol \jmathscr on input line 2647.
 LaTeX Info: Redefining \Bbbk on input line 2780.
 LaTeX Info: Redefining \not on input line 2929.
+) (c:/texlive/2021/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip64
+\subfigcapskip=\skip65
+\subfigcaptopadj=\dimen257
+\subfigbottomskip=\skip66
+\subfigcapmargin=\dimen258
+\subfiglabelskip=\skip67
+\c@subfigure=\count306
+\c@lofdepth=\count307
+\c@subtable=\count308
+\c@lotdepth=\count309
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(c:/texlive/2021/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip68
+\subfig@bottom=\skip69
+) (c:/texlive/2021/texmf-dist/tex/latex/was/gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
+) (c:/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count310
+\lst@gtempboxa=\box55
+\lst@token=\toks29
+\lst@length=\count311
+\lst@currlwidth=\dimen259
+\lst@column=\count312
+\lst@pos=\count313
+\lst@lostspace=\dimen260
+\lst@width=\dimen261
+\lst@newlines=\count314
+\lst@lineno=\count315
+\lst@maxwidth=\dimen262
+ (c:/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count316
+\lst@skipnumbers=\count317
+\lst@framebox=\box56
+) (c:/texlive/2021/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (c:/texlive/2021/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
+Package: xeCJK-listings 2020/10/19 v3.8.6 xeCJK patch file for listings
+\l__xeCJK_listings_max_char_int=\count318
+\l__xeCJK_listings_flag_int=\count319
+) (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 11.
-LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 11.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 56.
+LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 56.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 11.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 11.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 56.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 56.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 11.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 11.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 56.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 56.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 11.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 11.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 56.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 56.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    ... okay on input line 56.
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 11.
+LaTeX Info: Redefining \selectfont on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -698,8 +749,19 @@ LaTeX Info: Redefining \selectfont on input line 11.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count306
-\c@mv@boldtabular=\count307
+\c@mv@tabular=\count320
+\c@mv@boldtabular=\count321
+\symgns@font=\mathgroup8
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/ntxtlf/m/n --> TS1/ntxtlf/b/n on input line 56.
+Package gensymb Info: Math companion symbols declared on input line 56.
+LaTeX Info: Redefining \degree on input line 56.
+LaTeX Info: Redefining \celsius on input line 56.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 56.
+LaTeX Info: Redefining \ohm on input line 56.
+Package gensymb Info: Using \textohm for \ohm on input line 56.
+Package gensymb Info: Using \textmu for \micro on input line 56.
+\c@lstlisting=\count322
 
 Package fontspec Warning: Font "FandolHei-Regular" does not contain requested
 (fontspec)                Script "CJK".
@@ -719,78 +781,142 @@ Package fontspec Info: Font family 'FandolHei-Regular(0)' created for font
 (fontspec)             <->"[FandolHei-Bold.otf]/OT:language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
+File: camera_lay.png Graphic file (type bmp)
+<camera_lay.png>
 [1
 
-]
+] [2] [3]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 41.
-
-
-LaTeX Warning: Citation `UAV' on page 2 undefined on input line 54.
-
-
-LaTeX Warning: Citation `camera' on page 2 undefined on input line 54.
-
-
-LaTeX Warning: Citation `angle' on page 2 undefined on input line 65.
-
-[2]
-LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 92.
+(Font)              scaled to size 10.53937pt on input line 121.
+ [4] [5]
+LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 175.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 92.
+(Font)              scaled to size 10.53937pt on input line 175.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 92.
+(Font)              scaled to size 7.0pt on input line 175.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 92.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 92.
+(Font)              scaled to size 5.0pt on input line 175.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 175.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 92.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 175.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 92.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 175.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
-) [3]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 131.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 131.
- [4]
-
-LaTeX Warning: Citation `risken1996fokker' on page 5 undefined on input line 155.
-
-
-LaTeX Warning: Citation `rossler1979equation' on page 5 undefined on input line 157.
-
-
-LaTeX Warning: Citation `mckean1970nagumo' on page 5 undefined on input line 157.
-
-No file main.bbl.
-[5]
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 206.
+)
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 175.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 206.
- [6] (./main.aux)
+(Font)              scaled to size 10.53937pt on input line 175.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 175.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 175.
+ [6]
+File: kuang_1.png Graphic file (type bmp)
+<kuang_1.png>
+File: camera_lay.png Graphic file (type bmp)
+<camera_lay.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Citation `bianyuan' on page 7 undefined on input line 243.
+
+File: sobel.png Graphic file (type bmp)
+<sobel.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7] [8]
+File: kuang_2_a.png Graphic file (type bmp)
+<kuang_2_a.png>
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.52812pt on input line 275.
+File: kuang_2_b.png Graphic file (type bmp)
+<kuang_2_b.png>
+Missing character: There is no 仓 ("4ED3) in font ntx-Regular-tlf-ot1!
+Missing character: There is no 库 ("5E93) in font ntx-Regular-tlf-ot1!
+Missing character: There is no 为 ("4E3A) in font ntx-Regular-tlf-ot1!
+Missing character: There is no 空 ("7A7A) in font ntx-Regular-tlf-ot1!
+File: untitled.jpg Graphic file (type bmp)
+<untitled.jpg>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9]
+File: heap.png Graphic file (type bmp)
+<heap.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10]
+File: wangge_a.png Graphic file (type bmp)
+<wangge_a.png>
+File: wangge_b.png Graphic file (type bmp)
+<wangge_b.png>
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.52812pt on input line 368.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.52812pt on input line 368.
+ [11]
+
+LaTeX Warning: Reference `chedui' on page 12 undefined on input line 420.
+
+File: kuangbian.png Graphic file (type bmp)
+<kuangbian.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]
+File: liqu_a.jpg Graphic file (type bmp)
+<liqu_a.jpg>
+File: liqu_B.jpg Graphic file (type bmp)
+<liqu_B.jpg>
+ [13]
+Missing character: There is no ’ ("2019) in font ntx-Regular-tlf-ot1!
+File: neiwai.png Graphic file (type bmp)
+<neiwai.png>
+Missing character: There is no ’ ("2019) in font ntx-Regular-tlf-ot1!
+File: ping_dui_c.jpg Graphic file (type bmp)
+<ping_dui_c.jpg>
+File: ping_dui_f.jpg Graphic file (type bmp)
+<ping_dui_f.jpg>
+ [14]
+File: qiangdui_3.jpg Graphic file (type bmp)
+<qiangdui_3.jpg>
+File: qiangdui_fu.jpg Graphic file (type bmp)
+<qiangdui_fu.jpg>
+ [15] [16] (./main.bbl
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 8.
+) [17]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.52061pt on input line 578.
+ [18] [19] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 11835 strings out of 476919
- 253505 string characters out of 5825425
- 601876 words of memory out of 5000000
- 31622 multiletter control sequences out of 15000+600000
- 429345 words of font info for 77 fonts, out of 8000000 for 9000
+ 13812 strings out of 476919
+ 286620 string characters out of 5825425
+ 1026232 words of memory out of 5000000
+ 33545 multiletter control sequences out of 15000+600000
+ 436918 words of font info for 89 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,11n,104p,398b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,12n,104p,528b,1733s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (6 pages).
+Output written on main.pdf (19 pages).
