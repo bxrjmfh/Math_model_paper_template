@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  27 JUN 2022 20:40
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  29 JUN 2022 15:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -679,13 +679,12 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@bottom=\skip69
 ) (c:/texlive/2021/texmf-dist/tex/latex/was/gensymb.sty
 Package: gensymb 2003/07/02 v1.0 (WaS)
-)
-No file main.aux.
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 16.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 16.
-(c:/texlive/2021/texmf-dist/tex/latex/newtx/omlntxmi.fd
+ (c:/texlive/2021/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
 LaTeX Font Info:    ... okay on input line 16.
@@ -793,53 +792,50 @@ Package fontspec Info: Font family 'FandolHei-Regular(0)' created for font
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.53937pt on input line 37.
-LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 91.
+ [2]
+LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 94.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 91.
+(Font)              scaled to size 10.53937pt on input line 94.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 91.
+(Font)              scaled to size 7.0pt on input line 94.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 91.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 91.
+(Font)              scaled to size 5.0pt on input line 94.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 94.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 91.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 94.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 91.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 94.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 91.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 94.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 91.
+(Font)              scaled to size 10.53937pt on input line 94.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 91.
+(Font)              scaled to size 7.0pt on input line 94.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 91.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2] [3]
+(Font)              scaled to size 5.0pt on input line 94.
+ [3]
 No file main.bbl.
 [4]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.52061pt on input line 139.
+(Font)              scaled to size 5.52061pt on input line 142.
  [5] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 13818 strings out of 476919
- 276722 string characters out of 5825425
- 655358 words of memory out of 5000000
- 33575 multiletter control sequences out of 15000+600000
+ 13864 strings out of 476919
+ 280201 string characters out of 5825425
+ 665402 words of memory out of 5000000
+ 33619 multiletter control sequences out of 15000+600000
  427276 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,12n,104p,398b,1625s stack positions out of 5000i,500n,10000p,200000b,80000s
