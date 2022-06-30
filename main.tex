@@ -12,7 +12,8 @@
 % 打°符号\degree
 \usepackage{listings}
 % 代码
-
+\usepackage{tabularx, booktabs} %% Load packages that you use
+\usepackage{multirow} %跨行处理
 \begin{document}
 
 \newpage
@@ -113,22 +114,28 @@
 
 为了进行空战势态感知，机动决策，意图识别等工作，常常根据需要预先建立空战动作库\cite{1}。常见的空战库设计有两种方法,分别是包含丰富战术动作的典型战术动作库和由美国NASA学者\cite{2}提出的基本操纵动作库。前者内容丰富，但是前一种方法存在识别困难，对于某些复杂动作可能中断的情况处理不佳，而后一种方式以极限情况操作粗猛，不能保证组合出所有的战术动作。文献\cite{3}中提出的机动动作集合兼顾二者的优点，列举了仪表动作，简单特技，复杂特技共三类十二种动作，如表（\ref{dongzuo}） 。这一选择兼顾了简单动作与复杂动作，具有飞行动作代表性，易于识别。
 
-\begin{table}[h]
-\centering
-\vspace{3pt}
-\centering
-  \setlength{\leftskip}{0pt plus 1fil minus \marginparwidth}%通过这三行来改变三线表的对齐方式和宽度
-  \setlength{\rightskip}{\leftskip}
-  \resizebox{1.2\textwidth}{!}{
-\begin{tabular}{>{ \centering \arraybackslash}p{5em}>{ \centering \arraybackslash}p{30em}}
-\toprule % 绘制第一条线
-   A & b\\
-\midrule
- t & DW  \\ 
-\bottomrule
-\end{tabular}}
-\caption{{caption:default}}
+\begin{table}[h]%htbp表示的意思是latex会尽量满足排在前面的浮动格式，就是h-t-b-p这个顺序，让排版的效果尽量好。
+    \centering
+    \caption{战斗机的三类机动动作}
+    \vspace{10pt}
+    \begin{tabular}{p{4.0cm}<{\centering}p{4.0cm}<{\centering}p{4.0cm}<{\centering}}
+ %指定单元格宽度， 并且水平居中。
+    \hline
+    仪表动作 & 简单特技 & 复杂特技 \\ %换行 
+    \hline
+    盘旋 & \multirow{2}*{半滚倒转} & \multirow{2}*{“S”形急转} \\
+    急跃升 &  &  \\
+    俯冲 & \multirow{2}*{斤斗} & \multirow{2}*{战斗转弯} \\
+     水平匀速直线飞行&  &  \\
+     水平加速直线飞行& \multirow{2}*{半斤斗翻转} & \multirow{2}*{眼镜蛇机动} \\
+     水平减速直线飞行&  &  \\
+
+    \hline
+    \end{tabular}
+    \label{dongzuo}
 \end{table}
+
+为了区分各个机动动作，
 \section{七、模型的评价}
 
 \subsection{模型的优点}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  29 JUN 2022 21:56
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  30 JUN 2022 09:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -679,49 +679,82 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@bottom=\skip69
 ) (c:/texlive/2021/texmf-dist/tex/latex/was/gensymb.sty
 Package: gensymb 2003/07/02 v1.0 (WaS)
-)
-No file main.aux.
+) (c:/texlive/2021/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen263
+\TX@old@table=\dimen264
+\TX@old@col=\dimen265
+\TX@target=\dimen266
+\TX@delta=\dimen267
+\TX@cols=\count320
+\TX@ftn=\toks30
+) (c:/texlive/2021/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen268
+\lightrulewidth=\dimen269
+\cmidrulewidth=\dimen270
+\belowrulesep=\dimen271
+\belowbottomsep=\dimen272
+\aboverulesep=\dimen273
+\abovetopsep=\dimen274
+\cmidrulesep=\dimen275
+\cmidrulekern=\dimen276
+\defaultaddspace=\dimen277
+\@cmidla=\count321
+\@cmidlb=\count322
+\@aboverulesep=\dimen278
+\@belowrulesep=\dimen279
+\@thisruleclass=\count323
+\@lastruleclass=\count324
+\@thisrulewidth=\dimen280
+) (c:/texlive/2021/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip70
+\multirow@cntb=\count325
+\multirow@dima=\skip71
+\bigstrutjot=\dimen281
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 16.
-LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 16.
-(c:/texlive/2021/texmf-dist/tex/latex/newtx/omlntxmi.fd
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 17.
+LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 17.
+ (c:/texlive/2021/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 16.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 16.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 17.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 17.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 16.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 16.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 17.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 17.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 16.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 16.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 17.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 17.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 16.
-\c@lstlisting=\count320
+LaTeX Font Info:    ... okay on input line 17.
+\c@lstlisting=\count326
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 16.
+LaTeX Info: Redefining \selectfont on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -757,18 +790,18 @@ LaTeX Info: Redefining \selectfont on input line 16.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count321
-\c@mv@boldtabular=\count322
+\c@mv@tabular=\count327
+\c@mv@boldtabular=\count328
 \symgns@font=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/ntxtlf/m/n --> TS1/ntxtlf/b/n on input line 16.
-Package gensymb Info: Math companion symbols declared on input line 16.
-LaTeX Info: Redefining \degree on input line 16.
-LaTeX Info: Redefining \celsius on input line 16.
-Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 16.
-LaTeX Info: Redefining \ohm on input line 16.
-Package gensymb Info: Using \textohm for \ohm on input line 16.
-Package gensymb Info: Using \textmu for \micro on input line 16.
+(Font)                  TS1/ntxtlf/m/n --> TS1/ntxtlf/b/n on input line 17.
+Package gensymb Info: Math companion symbols declared on input line 17.
+LaTeX Info: Redefining \degree on input line 17.
+LaTeX Info: Redefining \celsius on input line 17.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 17.
+LaTeX Info: Redefining \ohm on input line 17.
+Package gensymb Info: Using \textohm for \ohm on input line 17.
+Package gensymb Info: Using \textmu for \micro on input line 17.
 
 Package fontspec Warning: Font "FandolHei-Regular" does not contain requested
 (fontspec)                Script "CJK".
@@ -792,90 +825,49 @@ Package fontspec Info: Font family 'FandolHei-Regular(0)' created for font
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 37.
+(Font)              scaled to size 10.53937pt on input line 38.
  [2]
-LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 96.
+LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 97.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 96.
+(Font)              scaled to size 10.53937pt on input line 97.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 96.
+(Font)              scaled to size 7.0pt on input line 97.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 96.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 96.
+(Font)              scaled to size 5.0pt on input line 97.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 97.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 96.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 97.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 96.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 97.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 96.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 97.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 96.
+(Font)              scaled to size 10.53937pt on input line 97.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 96.
+(Font)              scaled to size 7.0pt on input line 97.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 96.
+(Font)              scaled to size 5.0pt on input line 97.
 
 
-LaTeX Warning: Citation `1' on page 3 undefined on input line 114.
+LaTeX Warning: Citation `1' on page 3 undefined on input line 115.
 
 
-LaTeX Warning: Citation `2' on page 3 undefined on input line 114.
+LaTeX Warning: Citation `2' on page 3 undefined on input line 115.
 
 
-LaTeX Warning: Citation `3' on page 3 undefined on input line 114.
-
-
-LaTeX Warning: Reference `dongzuo' on page 3 undefined on input line 114.
-
-./main.tex:129: Undefined control sequence.
-<argument> ... \arraybackslash }p{30em}} \toprule 
-                                                  A & b\\ \midrule t & DW \\...
-l.129 \end{tabular}}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./main.tex:129: Undefined control sequence.
-<recently read> \midrule 
-                         
-l.129 \end{tabular}}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./main.tex:129: Undefined control sequence.
-<recently read> \bottomrule 
-                            
-l.129 \end{tabular}}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (1.14862pt too wide) in paragraph at lines 122--130
- [][] 
- []
+LaTeX Warning: Citation `3' on page 3 undefined on input line 115.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -884,19 +876,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 No file main.bbl.
 [5]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.52061pt on input line 164.
+(Font)              scaled to size 5.52061pt on input line 171.
  [6] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 13906 strings out of 476919
- 283393 string characters out of 5825425
- 667227 words of memory out of 5000000
- 33663 multiletter control sequences out of 15000+600000
+ 14078 strings out of 476919
+ 285817 string characters out of 5825425
+ 670497 words of memory out of 5000000
+ 33822 multiletter control sequences out of 15000+600000
  427276 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,12n,104p,398b,1625s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,12n,104p,398b,1622s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (6 pages).
