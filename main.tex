@@ -63,11 +63,14 @@
 \section{三、模型假设}
 %使用代码片段：、jiashe%
 \begin{enumerate}
-    \item 
+    \item 飞机所记录的飞行参数真实可信，没有因各种因素而导致数据错误。
+    
+    \textbf{原因：}动作序列的分割识别工作基于飞行时的各项参数所决定，如果飞行参数有误，那么所计算得出的动作序列将不准确。
+
+    \item 十大
     
     \textbf{原因：}
-
-
+    
 \end{enumerate}
 
 %----------- 四、符号说明 ----------
@@ -76,13 +79,13 @@
 \subsection{名词解释}
 \begin{enumerate}
     % 名词：、mingci
-    \item \textbf{dada}
+    \item \textbf{飞行参数}
     
-    dsadw
+    在空战模拟中飞机的时序数据，包含飞机海拔高度，真实空速（TAS），俯仰角，偏航角（Yaw）等指标。每条指标由id与Unix时间唯一标识。
     
-    \item \textbf{dsadc}
+    \item \textbf{机动动作}
     
-    dasdsas
+    战机在空中飞行过程中，飞机为了某些战术意图而做出的行为。在分析过程中，机动动作是最小的分析单位，不能再进行分割。
 
     
 \end{enumerate}
@@ -106,6 +109,26 @@
 
 以下将对提出的三个问题进行建模求解。
 
+\subsection{机动动作描述与量化模型}
+
+为了进行空战势态感知，机动决策，意图识别等工作，常常根据需要预先建立空战动作库\cite{1}。常见的空战库设计有两种方法,分别是包含丰富战术动作的典型战术动作库和由美国NASA学者\cite{2}提出的基本操纵动作库。前者内容丰富，但是前一种方法存在识别困难，对于某些复杂动作可能中断的情况处理不佳，而后一种方式以极限情况操作粗猛，不能保证组合出所有的战术动作。文献\cite{3}中提出的机动动作集合兼顾二者的优点，列举了仪表动作，简单特技，复杂特技共三类十二种动作，如表（\ref{dongzuo}） 。这一选择兼顾了简单动作与复杂动作，具有飞行动作代表性，易于识别。
+
+\begin{table}[h]
+\centering
+\vspace{3pt}
+\centering
+  \setlength{\leftskip}{0pt plus 1fil minus \marginparwidth}%通过这三行来改变三线表的对齐方式和宽度
+  \setlength{\rightskip}{\leftskip}
+  \resizebox{1.2\textwidth}{!}{
+\begin{tabular}{>{ \centering \arraybackslash}p{5em}>{ \centering \arraybackslash}p{30em}}
+\toprule % 绘制第一条线
+   A & b\\
+\midrule
+ t & DW  \\ 
+\bottomrule
+\end{tabular}}
+\caption{{caption:default}}
+\end{table}
 \section{七、模型的评价}
 
 \subsection{模型的优点}
