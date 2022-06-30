@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  30 JUN 2022 09:30
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  30 JUN 2022 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -872,23 +872,42 @@ LaTeX Warning: Citation `3' on page 3 undefined on input line 115.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3] [4]
-No file main.bbl.
-[5]
+[3]
+
+LaTeX Warning: Citation `4' on page 4 undefined on input line 143.
+
+
+LaTeX Warning: Citation `5' on page 4 undefined on input line 157.
+
+File: bangun.png Graphic file (type bmp)
+<bangun.png>
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.52061pt on input line 171.
- [6] (./main.aux)
+(Font)              scaled to size 7.52812pt on input line 170.
+File: jindou.png Graphic file (type bmp)
+<jindou.png>
+File: yjs.png Graphic file (type bmp)
+<yjs.png>
+[4]
+
+LaTeX Warning: Citation `7' on page 5 undefined on input line 198.
+
+[5] [6]
+No file main.bbl.
+[7]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.52061pt on input line 237.
+ [8] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 14078 strings out of 476919
- 285817 string characters out of 5825425
- 670497 words of memory out of 5000000
- 33822 multiletter control sequences out of 15000+600000
- 427276 words of font info for 76 fonts, out of 8000000 for 9000
+ 14126 strings out of 476919
+ 287900 string characters out of 5825425
+ 674047 words of memory out of 5000000
+ 33864 multiletter control sequences out of 15000+600000
+ 430089 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,12n,104p,398b,1622s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (6 pages).
+Output written on main.pdf (8 pages).
