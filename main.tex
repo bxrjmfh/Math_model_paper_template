@@ -378,6 +378,7 @@
 \begin {figure}[h]
 \centering % 居中显示
 \includegraphics[width=\textwidth]{1zhuan.jpg}
+说明：y轴上的数字对应各战斗动作。其中0：未出现；1：左盘旋；  2：右盘旋；  3：急跃升；  4：俯冲；  5：水平匀速直线； 6： 水平减速直线；7：水平加速直线；  8：半滚倒转； 9： 战斗转弯。
 \caption{“51st Bisons vs CNF Rd 1”的动作序列} % 标题
 \label{dzx}
 \end {figure}
@@ -515,6 +516,7 @@ p_{ij} = \frac{a_{ij}}{\sum_{i=1}^{n}a_{ij}}
 \begin {figure}[h]
 \centering % 居中显示
 \includegraphics[width=\textwidth]{9.jpg}
+说明：1代表攻击意图；0代表巡航意图；-1代表躲避意图。
 \caption{动作序列和意图的对应关系图} % 标题
 \label{five}
 \end {figure}
@@ -573,7 +575,9 @@ f = \sum_{i \in B,R} \Phi_i
     \item 飞行意图仅有数种，不能很好的覆盖复杂飞行战术。
 \end{itemize}
 
-%----------- 参考文献 ----------
+\subsection{模型的推广与改进}
+
+本模型许多重要参数均来源于数据的统计量，并且针对不同的飞机都做了单独的统计，因此具有较好的移植能力。若能给予更多关于导弹的信息，如俯仰角和偏航角等，我们可以建立更精确的模型。同时，可以应用基尼系数增益等指标优化决策树节点的生成情况，以此提高运算效率。
 \newpage
 \bibliographystyle{unsrt} %规定了参考文献的格式
 \begin{center}
