@@ -1,0 +1,179 @@
+\documentclass{my_paper}
+\usepackage{ctex}
+\usepackage[textwidth=444bp,vmargin=2.5cm]{geometry}%设置页边距
+\usepackage{array} %主要是增加列样式选项
+\usepackage[dvipsnames]{xcolor}%颜色宏包
+\usepackage{graphicx}%图片宏包
+\usepackage{amsmath}%公式宏包
+\usepackage[T1]{fontenc}    
+\usepackage{newtxtext, newtxmath}  %两种使用Times New Roman 字体的方法
+\usepackage{subfigure}
+\usepackage{tabularx, booktabs} %% Load packages that you use
+
+\usepackage { gensymb }
+% 打°符号\degree
+\usepackage{framed}
+
+\usepackage{listings}
+% 代码
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\usepackage[numbered,framed]{matlab-prettifier}%matlab 代码高亮
+\usepackage{mdframed}%另一个边框
+
+    
+\begin{document}
+\lstdefinestyle{python_style}{language=python,                    %Python语法高亮
+    linewidth=0.5\linewidth,            %列表list宽度
+    %basicstyle=\ttfamily,              %tt无法显示空格
+    commentstyle=\color{commentcolor},  %注释颜色
+    keywordstyle=\color{keywordcolor},  %关键词颜色
+    stringstyle=\color{stringcolor},    %字符串颜色
+    %showspaces=true,                   %显示空格
+    numbers=left,                       %行数显示在左侧
+    numberstyle=\tiny\emptyaccsupp,     %行数数字格式
+    numbersep=5pt,                      %数字间隔
+    frame=single,                       %加框
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},
+    framerule=0pt,                      %不划线
+    escapeinside=@@,                    %逃逸标志
+    emptylines=1,                       %
+    xleftmargin=0em,                    %list左边距
+    % backgroundcolor=\color{backcolor},  %列表背景色
+    tabsize=4,                          %制表符长度为4个字符
+    gobble=0 ,                          %忽略每行代码前4个字符
+    columns=fixed,
+    breaklines=true,                                     % 设定LaTeX对过长的代码行进行自动换行
+    stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+                                  % 设置语言
+    basicstyle=\linespread{1.0}\fontsize{10bp}{10bp}\selectfont\ttfamily,                      % 字体字号
+}
+
+\lstdefinestyle{python_style}{
+ columns=fixed,
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=trbl,                                        % 单线背景边框
+ breaklines=true,                                     % 设定LaTeX对过长的代码行进行自动换行
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=python,                                        % 设置语言
+ basicstyle=\linespread{1.0}\fontsize{10bp}{10bp}\selectfont\ttfamily,                      % 字体字号
+ %lineskip=10bp,
+ %baselinestretch=1,
+}
+\begin{lstlisting}[style=python_style]
+    var a = 1;
+\end{lstlisting}
+
+\begin{lstlisting}[style=Matlab-editor]
+    a = 1
+\end{lstlisting}
+
+\begin{lstlisting}[style = python_style,frame=trBL]
+    def fus():
+        dwawd = 10
+        return "ds"
+    
+\end{lstlisting}
+\newpage
+\section{附件}
+\appendix
+\textbf{附件清单：}
+\begin{itemize}
+    \item xxx代码
+\end{itemize}
+
+\textbf{sobel边缘检测代码}
+\begin{framed}
+\begin{lstlisting}[language=python]
+    function GAdsa 
+\end{lstlisting}
+\end{framed}
+
+\begin{enumerate}
+    \item dwda
+    \item dwafwfe
+    \item fawfe
+    \item erf
+    \item dwadwa
+    \item dwad
+\end{enumerate}
+
+\renewcommand\theenumi{\roman{enumi}}
+% 规定数字格式为罗马数字
+\renewcommand\labelenumi{\textbf{附录\theenumi}}
+% 规定是附录某某
+\begin{enumerate}
+    \item dwadf
+    \item dwfgh
+    \item grhyh
+    \item grrncsq
+    \item ddwfafa
+\end{enumerate}
+
+\section{dwawdaf}
+\section{dwawdaf}
+\section{dwawdaf}
+\section{dwawdaf}
+\section{dwawdaf}
+% \begin{mdframed}
+
+        \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{code.m}
+    
+
+    
+% \end{mdframed}
+
+
+
+% \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+% \definecolor{mylilas}{RGB}{170,55,241}
+% \lstset{language=Matlab,%
+%     %basicstyle=\color{red},
+%     linewidth=0.9\linewidth,            %列表list宽度
+%     breaklines=true,%
+%     frame=single,%输出单个边框
+%     morekeywords={matlab2tikz},
+%     keywordstyle=\color{blue},%
+%     morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+%     identifierstyle=\color{black},%
+%     stringstyle=\color{mylilas},
+%     commentstyle=\color{mygreen},%
+%     showstringspaces=false,%without this there will be a symbol in the places where there is a space
+%     numbers=left,%
+%     numberstyle={\tiny \color{black}},% size of the numbers
+%     numbersep=9pt, % this defines how far the numbers are from the text
+%     emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+%     %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+% }
+
+
+\end{document}
+
+\usepackage{mdframed}%另一个边框
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\usepackage[numbered,framed]{matlab-prettifier}%matlab 代码高亮
+% matlab代码样式，使用方法为：
+% \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{code.m}
+% 或：
+% \begin{lstlisting}[style=matlab-prettifier]
+%     %code
+% \end{lstlisting}
+
+\renewcommand\theenumi{\roman{enumi}}
+% 规定数字格式为罗马数字
+\renewcommand\labelenumi{\textbf{附录\theenumi}}
+% 规定是附录某某
+
+
+\begin{enumerate}
+    \item dsada
+    \item dasdasf
+    \item fertg
+    \item htyhb
+    \item deeg
+\end{enumerate}
