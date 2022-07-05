@@ -12,11 +12,36 @@
 
 \usepackage { gensymb }
 % 打°符号\degree
+\usepackage{framed}
 \usepackage{listings}
 % 代码
-
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\usepackage[numbered,framed]{matlab-prettifier}%matlab 代码高亮
+\usepackage{mdframed}%另一个边框
+% matlab代码样式，使用方法为：
+% \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{code.m}
+% 或：
+% \begin{lstlisting}[style=matlab-prettifier]
+%     %code
+% \end{lstlisting}
 \begin{document}
 
+\lstdefinestyle{python_style}{
+ columns=fixed,
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=trbl,                                        % 单线背景边框
+ breaklines=true,                                     % 设定LaTeX对过长的代码行进行自动换行
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=python,                                        % 设置语言
+ basicstyle=\linespread{1.0}\fontsize{10bp}{10bp}\selectfont\ttfamily,                      % 字体字号
+ %lineskip=10bp,
+ %baselinestretch=1,
+}
 \newpage
 \begin{center}
 \lunwenbiaoti
@@ -131,6 +156,10 @@
 \newpage
 \section{附件}
 \textbf{附件清单：}
+\renewcommand\theenumi{\roman{enumi}}
+% 规定数字格式为罗马数字
+\renewcommand\labelenumi{\textbf{附录\theenumi}}
+% 规定是附录某某
 \begin{itemize}
     \item xxx代码
 \end{itemize}
