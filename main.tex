@@ -15,6 +15,7 @@
 \usepackage{tabularx, booktabs} %% Load packages that you use
 \usepackage{multirow} %跨行处理
 \usepackage{rotating}%横向表格
+\usepackage{diagbox}%斜线划分表头
 \begin{document}
 
 \newpage
@@ -298,13 +299,102 @@
 
 \subsubsection{数据预处理过程}
 
-分析观察数据，数据有个体丰富种类多样的特点。具体体现在一个文件代表一场战役，战役中含有敌我双方的若干飞机、导弹与干扰弹等。这些战场上的实体在任意时段出现或是消失。要进行动作序列的生成，需要将属于每个个体的条目分别划分出来。
+分析观察数据，数据有个体丰富种类多样的特点。具体体现在一个文件代表一场战役，战役中含有敌我双方的若干飞机、导弹与干扰弹等。这些战场上的实体在任意时段出现或是消失。要进行动作序列的生成，需要将属于每个个体的条目分别划分出来。同时，每架飞机和每一枚导弹各自都归属于某个阵营，这一参数可以用于分析战场态势。同时，鉴于不同型号飞机的结构设计不同，对应的设计指标也就不同，需要就飞机的具体型号进行划分，以便决定后续各机型的参数。对于此类重要信息，我们选取一场战斗中数据进行分析总结，列出表（\ref{tp}）。
+
+
+
+\begin{table}[h]
+\centering
+\caption{战场上的重要个体信息统计}
+% \begin{tabular}{|l|l|l|l|l|l|l|}
+%     id & Type & Color & Coalition & Name & Group & Country \\ \hline
+%     102 & Air+FixedWing & Red & Allies & E-2C & Red AWACS \#002 & xu \\ \hline
+%     202 & Air+FixedWing & Blue & Enemies & E-2C & Blue AWACS \#001 & us \\ \hline
+%     106 & Air+FixedWing & Red & Allies & J-11A & Red J-11A \#001 & xu \\ \hline
+%     10A & Air+FixedWing & Blue & Enemies & Su-27 & Blue Su-27 \#001 & ru \\ \hline
+%     109 & Air+FixedWing & Red & Allies & Su-33 & Red Su-33 \#001 & xu \\ \hline
+%     107 & Air+FixedWing & Blue & Enemies & F-15C & Blue F-15C \#002 & us \\ \hline
+%     108 & Air+FixedWing & Red & Allies & Su-33 & Red Su-33 \#002 & xu \\ \hline
+%     10C & Air+FixedWing & Red & Allies & J-11A & Red J-11A \#005 & xu \\ \hline
+%     105 & Air+FixedWing & Red & Allies & J-11A & Red J-11A \#002 & xu \\ \hline
+%     10B & Air+FixedWing & Blue & Enemies & J-11A & Blue J-11A \#001 & cn \\ \hline
+%     104 & Air+FixedWing & Blue & Enemies & J-11A & Blue J-11A \#002 & cn \\ \hline
+%     10E & Air+FixedWing & Blue & Enemies & F-15C & Blue F-15C \#001 & us \\ \hline
+%     10F & Air+FixedWing & Red & Allies & J-11A & Red J-11A \#003 & xu \\ \hline
+%     110 & Air+FixedWing & Blue & Enemies & J-11A & Blue J-11A \#003 & cn \\ \hline
+%     205 & Weapon+Missile & Red & Allies & R-27ET & <missing> & xu \\ \hline
+%     204 & Weapon+Missile & Blue & Enemies & R-27ET & <missing> & cn \\ \hline
+%     706 & Weapon+Missile & Red & Allies & R-27ER & <missing> & xu \\ \hline
+%     707 & Weapon+Missile & Blue & Enemies & AIM-120B & <missing> & us \\ \hline
+%     360B & Weapon+Missile & Blue & Enemies & R-27ER & <missing> & cn \\ \hline
+%     12406 & Weapon+Missile & Red & Allies & R-77 & <missing> & xu \\ \hline
+%     1250B & Weapon+Missile & Blue & Enemies & R-73 & <missing> & cn \\ \hline
+%     110A & Weapon+Missile & Blue & Enemies & R-27ER & <missing> & ru \\ \hline
+%     24F0C & Weapon+Missile & Red & Allies & R-73 & <missing> & xu \\ \hline
+%     2BB04 & Weapon+Missile & Blue & Enemies & R-77 & <missing> & cn \\ \hline
+%     4F0A & Weapon+Missile & Blue & Enemies & R-27ET & <missing> & ru \\ \hline
+%     7E0A & Weapon+Missile & Blue & Enemies & R-73 & <missing> & ru \\ \hline
+%     301BC02 & Weapon+Missile & Violet & Neutral & R-73 (AA-11) & <missing> & <missing> \\ \hline
+% \end{tabular}
+\begin{tabular}{|l|l|l|l|l|}
+    \hline
+        Color（阵营颜色） & Type（型号） & Name（飞机） & name（导弹） & Country \\ \hline
+        Red & Air+FixedWing & E-2C & R-27ET & xu \\ 
+        Blue & Weapon+Missile & J-11A & R-27ER & us \\ 
+        Violet（中立） & Misc+Decoy+Chaff（箔条干扰弹） & Su-27 & AIM-120B & ru \\ 
+        ~ & Misc+Decoy+Flare（耀斑干扰弹） & Su-33 & R-77 & cn \\ 
+        ~ & Misc+Container & F-15C & R-73 & \\ 
+        ~ & Misc+Shrapnel（伤片弹） &&&\\ \hline
+    \end{tabular}
+\label{tp}
+  \end{table}
 
 在划分各个个体的数据后，观察按照unix时间排列的数据序列，发现存在数据缺失的现象，这是由于不同参数的采样率存在差异。为了分析的统一性，对这些数据进行插值。比较了线性插值，常数填补，以及移动均值方法，考虑到线性插值易受噪声影响，常数填补方式难以确定填补数值，而采用移动均值方法较好的减弱了噪声，因此采用该方法填补了缺失数值。
 
-在完成上述步骤后，随机选取一架飞机的时间序列并绘制，观察到高度$h$较为稳定，而飞行速度$v$等飞行参数会存在不停止的小幅波动。原因在于飞机正常飞行时高度一般保持不变，但是空中气流的存在使得飞机速度和航向角等会发生波动。
 
-观察数据特点后，我们想要从参数序列中提取变化情况，即判断一段参数序列是平稳不变，还是上升或者下降。需要尽可能减少噪声带来的误判，并准确识别数据的变化趋势。我们尝试使用差分的方法，但是由于噪声的存在，无法正确识别可用信息。随后采用均值滤波后的序列进行差分，效果仍然不佳，且造成数据的突变特征被减弱。在上述尝试的基础上，我们又查阅相关资料\cite{9},提出了采用双滑动窗口的解决办法。
+在完成上述步骤后，随机选取一架飞机的时间序列并绘制，观察到高度$h$较为稳定，而飞行速度$v$等飞行参数会存在不停止的小幅波动，如图（\ref{bdt}）。原因在于飞机正常飞行时高度一般保持不变，但是空中气流的存在使得飞机速度和航向角等会发生波动。
+
+\begin{figure}[htbp]
+    \centering  %居中
+    \subfigure[飞行真空速$v$]{   %第一张子图
+    \begin{minipage}{0.4\textwidth}%大小总和超过textwidth则自动换行
+    \centering    %子图居中
+    \includegraphics[width=\textwidth]{gdt.jpg}  %设置图片的输出大小倍数，这里是0.5倍大小输出
+    \end{minipage}
+    }
+    \subfigure[飞行海拔高度$h$]{ %第二张子图
+    \begin{minipage}{0.4\textwidth}
+    \centering    %子图居中
+    \includegraphics[width=\textwidth]{hbt.jpg}%以pic.jpg的0.5倍大小输出
+    \end{minipage}
+    }
+    
+
+    \caption{飞行参数同时间的变化关系图}    %大图名称
+    \label{bdt}    %图片引用标记
+\end{figure}
+\newpage
+针对航向角的变化问题，观察到航向角（偏航角）的数据处于$ 0\degree $-$ 360\degree $范围内，这是仪器本身结果所限。但是若要分析器变化趋势，直接使用该原始数据可能带来识别错误的现象。以右盘旋动作为例，在进行该动作时，偏航角变大，假设飞机开始转向时初始偏航角$\alpha_0=350\degree$,向右偏转$ 20\degree $，随后偏航角数据显示为$ 10\degree $。此时若用原始数据判断，则会判断出“先增后减再增”三段趋势，从而导致不能准确识别。为了解决这一问题，我们采用偏航角的累计变化量来代替原始数据，其基本思想是比较两相邻时刻的$ \Delta\alpha $值，若变化接近$ \pm 360\degree $，则直接取变化的累积量$ \alpha' $为下一时刻的偏航角值，计算方法由式\ref{phj}所列出。
+
+\begin{equation}
+    \alpha'_{t+1} = \begin{cases}
+        \alpha'_{t} + \Delta \alpha+360\degree,&\Delta \alpha\to -360\degree \\
+        \alpha'_{t} + \Delta \alpha-360\degree,&\Delta \alpha\to 360\degree \\
+        \alpha'_{t} + \Delta \alpha,&else
+    \end{cases}
+    \label{phj}
+\end{equation}
+
+就处理前后的偏航角进行对比,得到下图（图\ref{hxj}）：
+
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.6\textwidth]{phjt.jpg}
+\caption{处理前原始航向角$\alpha$和处理后的$\alpha'$对比图} % 标题
+\label{hxj}
+\end {figure}
+
+观察数据特点并对其做数据处理后，我们想要从参数序列中提取变化情况，即判断一段参数序列是平稳不变，还是上升或者下降。需要尽可能减少噪声带来的误判，并准确识别数据的变化趋势。我们尝试使用差分的方法，但是由于噪声的存在，无法正确识别可用信息。随后采用均值滤波后的序列进行差分，效果仍然不佳，且造成数据的突变特征被减弱。在上述尝试的基础上，我们又查阅相关资料\cite{9},提出了采用双滑动窗口的解决办法。
 
 \subsubsection{序列趋势识别模型}
 
@@ -362,14 +452,18 @@
 \label{slide}
 \end {figure}
 
-经过滑窗处理后，原始数据经过被分段处理，分段的标准是趋势的变化情况。我们根据基元的上升下降和平直三种趋势，将飞机参数划分为相应的变化段。我们认为在一个动作执行过程中，飞行参数变化情况为$A(h,\dot{h},\alpha,\dot{\alpha},v )$保持不变，故机动动作段如图（\ref{huafen}）中划分的结果所示。由于飞机操纵者习惯的差异和战场势态的变化，飞行动作执行时间可能不同。采用固定时间窗口进行动作划分，则很容易导致长动作被错误分割为多个更小动作。该方法可以很大程度上减少的这一错误划分现象。在得到动作段后，机动动作的种类可以由5.1中提出的决策树进行识别。
-
+\newpage 
+经过滑窗处理后，原始数据经过被分段处理，分段的标准是趋势的变化情况。我们根据基元的上升下降和平直三种趋势，将飞机参数划分为相应的变化段。我们认为在一个动作执行过程中，飞行参数变化情况为$A(h,\dot{h},\alpha,\dot{\alpha},v )$保持不变，故机动动作段如图（\ref{huafen}）中划分的结果所示。
 \begin {figure}[h]
 \centering % 居中显示
-\includegraphics[width=\textwidth]{d.jpg}
+\includegraphics[width=0.85\textwidth]{d.jpg}
 \caption{变化趋势划分结果（以$h,v,\alpha$为例）} % 标题
 \label{huafen}
 \end {figure}
+
+以该图为例，取偏航角处上升的时间段分析，此时对应其余几个飞行参数的动作都是没有发生变化，对应到决策树的叶子节点为向右盘旋，其余推断过程以此类推。由于飞机操纵者习惯的差异和战场势态的变化，飞行动作执行时间可能不同。采用固定时间窗口进行动作划分，则很容易导致长动作被错误分割为多个更小动作。该方法可以很大程度上减少的这一错误划分现象。在得到动作段后，机动动作的种类可以由5.1中提出的决策树进行识别。
+
+
 
 \subsubsection{飞机动作序列切割}
 
@@ -500,16 +594,44 @@ p_{ij} = \frac{a_{ij}}{\sum_{i=1}^{n}a_{ij}}
     \eta_j = \frac{g_j}{\sum_{j=1}^{4}g_j}
 \end{equation}
 
+我们就“J-11A”这一系列飞机使用熵权法，计算出该类飞机的权重特征，如下表所示：
+
+\begin{table}[ht]
+\centering
+\caption{熵权法权重确定结果}
+\begin{tabular}{|l|l|l|l|}
+    \hline
+        \diagbox{优势函数}{熵权法中的对应参数} & $e$ & $g$ & $\eta$ \\ \hline
+        $\Phi_\theta$ & 0.9908 & 0.0092 & 0.3963 \\ \hline
+        $\Phi_H$ & 0.9926 & 0.0074 & 0.3179 \\ \hline
+        $\Phi_b$ & 0.9968 & 0.0032 & 0.1397 \\ \hline
+        $\Phi_v$ & 0.9966 & 0.0034 & 0.1461 \\ \hline
+    \end{tabular}
+
+\label{label}
+  \end{table}
+
+可见对于该型号的飞机而言，作战角度优势$ \Phi_\theta $与作战高度优势$\Phi_h$较为重要。
 \subsubsection{动作序列与战斗意图识别}
 
-通过分析我机和敌机之间的距离$d$和战斗优势$\Phi$，可以分析出任意时刻战机的作战意图，分析步骤如图（\ref{pdjc}）所示。
+通过分析我机和敌机之间的距离$d$和战斗优势$\Phi$，可以分析出任意时刻战机的作战意图得出以下计算式，分析步骤如图（\ref{pdjc}）所示。
+\begin{equation}
+    y = \begin{cases}
+        \text{巡航},& d>d_s\\
+        \text{攻击},& d<d_s\quad and\quad \Phi_{\text{我机}}>\Phi_{\text{敌机}}\\
+        \text{躲避},& d<d_s\quad and\quad \Phi_{\text{敌机}}>\Phi_{\text{我机}}\\
+    \end{cases}
+\end{equation}
+，其中战斗距离$ d $由5.3.1中提出的方法，利用matlab中geodetic2ned函数计算，战备距离$ d_s $由统计得出，战斗优势利用5.3.2中四个因素的战斗优势公式$\Phi = \eta_{1}\Phi_{\theta}+\eta_{2}\Phi_{h}+\eta_{3}\Phi_{d}+\eta_{4}\Phi_{v}
+$计算而出。
 
 \begin {figure}[h]
 \centering % 居中显示
-\includegraphics[width=\textwidth]{yitu.png}
+\includegraphics[width=0.8\textwidth]{yitu.png}
 \caption{飞机意图判断决策图} % 标题
 \label{pdjc}
 \end {figure}
+
 
 我们对整个战役中的意图进行识别，识别后对应到相应时段上的动作进行归类，将归属于同一意图$y_i$的动作序列$M\{m_1,m_2,...,m_n\}$归于同一集合。提取重复最多次的动作序列$M\in y_i$，认为该动作子序列对应意图为$y_i$。我们选取某架飞机在一场战斗中的动作序列和对应意图对应输出，并以意图变化时作为分割，输出以下图片：
 
@@ -566,7 +688,7 @@ f = \sum_{i \in B,R} \Phi_i
     \item 采用双窗口法对变化的数据序列进行分析，有效减少了噪声影响，并且提取出数据的变化趋势。
     \item 使用时间作为桥梁联系飞机飞行意图和动作序列，有效利用了所给数据，并考虑统计意图和动作序列之间的关系，得出动作子序列和飞机意图之间的对应关系。
     \item 综合考虑了全局的战术意图情况，在势态感知中引入了干扰弹，有效利用了信息。
-
+    \item 在确定阈值时，首先依据统计规律从原始数据中提取，在原始数据无法满足时，从参考文献中获得，如5.2.2中窗口大小依据飞机完成动作的最小时间确定，而趋势阈值$ k_s $的选取来自文献或是角度，速度差分的均值；5.3.1中的战备距离$d_s$由每架发射导弹的飞机同最近距离$d$的统计量：$3\sigma + \eta$；5.3.2中各项参数也有统计量所确定。
 \end{enumerate}
 
 \subsection{模型的缺点}
