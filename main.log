@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  7 JUL 2022 00:26
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  7 JUL 2022 00:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1007,40 +1007,39 @@ Package fontspec Info: Font family 'FandolHei-Regular(0)' created for font
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.53937pt on input line 79.
- [2]
-LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 121.
+LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 81.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 121.
+(Font)              scaled to size 10.53937pt on input line 81.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 121.
+(Font)              scaled to size 7.0pt on input line 81.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 121.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 121.
+(Font)              scaled to size 5.0pt on input line 81.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 81.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 121.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 81.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 121.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 81.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 121.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 81.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 121.
+(Font)              scaled to size 10.53937pt on input line 81.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 121.
+(Font)              scaled to size 7.0pt on input line 81.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 121.
- [3]
+(Font)              scaled to size 5.0pt on input line 81.
+ [2] [3]
 No file main.bbl.
 [4] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -1048,7 +1047,7 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 Here is how much of TeX's memory you used:
  15785 strings out of 476919
  312036 string characters out of 5825425
- 864281 words of memory out of 5000000
+ 867271 words of memory out of 5000000
  35453 multiletter control sequences out of 15000+600000
  424471 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
