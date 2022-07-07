@@ -133,6 +133,122 @@
 \section{五、模型的建立与求解}
 
 以下将对提出的三个问题进行建模求解。
+\subsection{热水调控的房间温度模型}
+
+为了解决问题一，我们提出一种以房间热水流量和热水温度为输入，以最终房屋每处温度随时间的变化为输出的模型。为此，我们对暖气片的工作原理，房间的结构和传热特性进行分析。在得到房屋的热量传递模型后，结合牛顿冷却定律、傅里叶传热定律以及热量守恒定律，建立离散化的屋内温度模型。
+
+\subsubsection{暖气片供热模型}
+
+暖气片利用热水在管中流动的过程，加热其周围的空气，并传递热量到周围，是一种典型的间壁式散热器\cite{2}。在工作过程中,暖气片的热水从一端流入，并且从另一端流出较冷的水，在内部为相连的若干U形管相连，如 图（\ref{nuanqipian}）所示：
+
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=\textwidth]{nuanqipian.png}
+说明：为展示方便，z轴垂直纸面向内，隐去不画。
+\caption{暖气片内部水流示意图} % 标题
+\label{nuanqipian}
+\end {figure}
+
+在$ t=0 $时，热水还未流入管内，此时管内水流温度等于室内温度$ T_{s0} $；
+
+在经过时间 $t_0$ 后，热水流入管中，此时管中热水长度$l$为:
+
+\begin{equation}
+l_0 = \int^{t_0}_{0}\frac{v(t)}{S}dt
+\end{equation}
+
+其中$ v(t) $为热水流量，随调节过程随时间变化，$ S $为暖气管的横截面积。在水流长度为$ l $的情况下，对应在图（\ref{nuanqipian}）中的直角坐标系，有唯一的坐标表示$(x,y,z)=f(l)$，即：
+
+\begin{equation}
+\begin{cases}
+    x = f_x(l)\\
+    y = f_y(l)\\
+    z = f_z(l)\\
+\end{cases}
+\end{equation}
+
+取时间微元$ t\to t+dt $进行分析，此时长度变化为$dl$,使用水流速度$v(t)$，横截面积$S$计算而出。
+
+\begin{equation}
+    dl = \frac{v(t)*dt}{S}
+\end{equation}
+
+考虑该段微元处的管道导热影响，我们画出其截面图（图\ref{jiemian}），对于该段柱体而言，可以假设管内的温度为$T_1$而管外温度为$T_2$，观察暖气管的物理结构可知，满足长度远远大于其直径，可以看作是等温面共轴。在这一条件下，建立热传导微分方程：
+
+\begin{equation}
+\frac{d^{2}T}{dr^{2}} + \frac{1}{r}\frac{dT}{dr}
+\end{equation}
+
+使用变量代换法，将上式变形：
+\begin{equation}
+u = \frac{dT}{dr} \Rightarrow  \frac{du}{dr}=\frac{d^2T}{dr^2}
+\label{}
+\end{equation}
+
+之后将原始微分方程变化为以下形式：
+\begin{equation}
+\frac{du}{dr}+\frac{u}{r} = 0
+\label{}
+\end{equation}
+
+可以通过分离变量法和两部积分法，可以求出对数形式的同届：
+\begin{equation}
+    \begin{cases}
+        ln u +lnr = lnC_1\\
+        T(r) = C_1 lnr + C_2
+    \end{cases}
+\label{}
+\end{equation}
+
+通过给定第一类边界条件\cite{1},即表面温度分布，如下所示：
+\begin{equation}
+    \begin{cases}
+        r = r_1 , & T = T_1\\
+        r = r_2 , & T = T_2
+    \end{cases}
+\end{equation}
+
+可以计算出柱体内的最终温度场形式：
+\begin{equation}
+    T(r) = T_1 - (T_1-T_2)\frac{lnr - lnr_1}{lnr_2 - lnr_1}
+\end{equation}
+
+利用傅里叶传热定律计算出表面的热流密度$\phi$:
+
+\begin{equation}
+    \phi = -\lambda \frac{dT}{dr} = \frac{\lambda}{r}\frac{T_1-T_2}{lnr_1-lnr_2}
+\end{equation}
+
+经过上述分析，我们建立了水流经由暖气管向外散发热量的过程，在完成上述过程后分析一段微元$dl$处的热交换情况。由于微元处的长度很小，该段微元的温度可以由微元开始处的温度$T_n(l,t_0)$所确定。我们利用牛顿冷却定律\cite{1}，在水柱微元和空气之间建立如下所示的传热关系：
+
+\begin{equation}
+    \begin{aligned}
+        q&= k_0*(T(x,y,z,t_0)-T_n(l,t_0))\\
+        &= k_0 * (T(f_x(l),f_y(l),f_z(l),t_0)-T_n(l,t_0))
+    \end{aligned}
+\end{equation}
+
+其中$T,T_n$分别代表室内空气温度和暖气温度，$q$代表热流密度，含义是单位时间内单位面积处发出或接受的热量。我们利用$ q $可以求得一段水柱微元内的热量变化$dQ$，以及由于热量变化所导致的温度变化$dT_n$:
+\begin{equation}
+    dQ = q* C * dl * dt
+\end{equation}
+
+$q$代表热流密度，$C$为暖气管的截面周长，又依据比热容的计算公式，算出一段水柱的温度变化：
+\begin{equation}
+    dT_n(l,t_0) = \frac{dQ}{c*s*dl*\rho}
+    \label{dt}
+\end{equation}
+
+在这里$c$代表水的比热容，$S$代表管道截面积。由于水管中水流不断移动，相邻两段微元之间的温度差很小，近似认为不发生热交换，故在我们的模型中，该暖水微元的温度变化数值$dT$为后一时刻的同一段水柱温度变化，因此式（\ref{dt}）被解释为：
+\begin{equation}
+dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
+\label{}
+\end{equation}
+
+也就是说在$ dt $的时间间隔内，暖水微元移动了$dl$距离，但是在分析温差变化时，还是计算同一段水柱的变化数值。至此，我们已经阐述了流水在暖气管道中的热交换问题，在下面的内容中，我们将同样使用微分的方法，以能量守恒定律，牛顿冷却定律，傅里叶传热定律建立屋内空气变化模型。
+
+
+
 \section{六、敏感性分析}
 \section{七、模型的评价}
 
