@@ -91,7 +91,11 @@
 \section{三、模型假设}
 %使用代码片段：、jiashe%
 \begin{enumerate}
-    \item 
+    \item 流水之间的温度没有传递
+    \item 房屋墙壁绝热的思想
+    \item 不开窗
+    \item 热传导形式
+    \item 室内定压
     
     \textbf{原因：}
 
@@ -247,8 +251,116 @@ dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
 
 也就是说在$ dt $的时间间隔内，暖水微元移动了$dl$距离，但是在分析温差变化时，还是计算同一段水柱的变化数值。至此，我们已经阐述了流水在暖气管道中的热交换问题，在下面的内容中，我们将同样使用微分的方法，以能量守恒定律，牛顿冷却定律，傅里叶传热定律建立屋内空气变化模型。
 
+\subsubsection{房屋的传热学分析}
 
+对于一间房屋而言，其内部空气的温度受到墙壁种类，开窗的情况，以及天花板与外界的接触情况影响，我们将对这些因素逐一进行分析。
+\begin{enumerate}
+    \item 对墙面的分析
+    
+    注意到墙面依据所处的位置被分为内墙和外墙\cite{3}，划分的依据在于是否和室外空间相接触，我们将与室外空间接触的墙体视作为外墙，而不接触的称为内墙。对于外墙而言，外侧同室外的冷空气直接接触，造成温度较低，即使墙体具有部分阻隔冷气的作用，仍然会导致室内的墙体温度较低，带走室内的空气热量。对于内墙而言，内墙两侧都是室内空气，温度差值不大，可以近似认为内墙时绝热的，不会传导室内空气热量。
+    \item 对窗户的分析
+    
+    外墙上常常装有窗户，与外界空气联通，因此会带来室内的空气交换与热量传递。即使是在没有打开窗户的情况下，热量交换也会透过玻璃进行。在分析房内温度的过程中，也应当对窗户加以考虑。
+    \item 对天花板和地面的分析
+    
+    对于天花板而言，其与外界直接接触，本质同外墙没有区别，会向屋外散发热量。而分析可知地面温度随气温的变化程度较之于大气变化速度较慢，且有地基等因素的存在，确定地面的温度变化较为困难，因此将其认为绝热。
+    
 
+\end{enumerate}
+
+综合上述分析，我们对给定的矩形房屋建模，建立直角坐标系，标注其内外墙面的顶点坐标和对应类别，并以坐标形式呈现：
+
+\begin{equation}
+    \begin{aligned}
+        \text{内墙：}&(x_{11},y_{11},z_{11})&(x_{12},y_{12},z_{12})\\
+                    &(x_{13},y_{13},z_{13})&(x_{14},y_{14},z_{14})\\
+                    &(x_{21},y_{21},z_{21})&\cdots \\
+        \text{外墙：}&(x_{11},y_{11},z_{11})&(x_{12},y_{12},z_{12})\\
+        &(x_{13},y_{13},z_{13})&(x_{14},y_{14},z_{14})\\
+        &(x_{21},y_{21},z_{21})&\cdots \\
+        \text{窗户：}&(x_{11},y_{11},z_{11})&(x_{12},y_{12},z_{12})\\
+        &(x_{13},y_{13},z_{13})&(x_{14},y_{14},z_{14})\\
+        &(x_{21},y_{21},z_{21})&\cdots \\
+        \text{天花板：}&(x_{11},y_{11},z_{11})&(x_{12},y_{12},z_{12})\\
+        &(x_{13},y_{13},z_{13})&(x_{14},y_{14},z_{14})\\
+        \text{地面：}&(x_{11},y_{11},z_{11})&(x_{12},y_{12},z_{12})\\
+        &(x_{13},y_{13},z_{13})&(x_{14},y_{14},z_{14})\\
+    \end{aligned}
+\end{equation}
+
+可以注意到，在房屋内的空气可以进行分析，对于那些直接同外壁接触的空气微元可能发生外部的热交换，而没有同外壁接触的空气微元则只进行空气微元的交换行为，这为我们分析空气传热问题提供了有利条件。
+
+为了分析墙壁和玻璃窗的散热速率，我们计算其传热系数$K$\cite{1}，其计算公式如下：
+
+\begin{equation}
+    K = \frac{1}{\frac{1}{h_1}+\frac{\sigma}{\lambda}+\frac{1}{h_2}}
+\end{equation}
+
+其中$h_1$和$ h_2 $是材料的内外表面换热阻值，$ \sigma $是裁量的厚度，$ \lambda $是材料的导热系数，依据这一公式可以求解出每平方米墙面或玻璃传递的热量。
+\subsubsection{室内空气传热模型}
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.7\textwidth]{weiyuan.png}
+\caption{气体微元示意图} % 标题
+\label{weiyuan}
+\end {figure}
+在分析暖气片的工作原理以及房屋的传热分析后，我们就室内的空气进行传热分析，首先利用房屋中所建立的坐标系，分析在室内空气微元$dV$中的变化过程，其中$dV$表达如下,示意图如图（\ref{weiyuan}）。
+\begin{equation}
+dV = [(x,y,z),(x+dx,y+dy,z+dz)]
+\label{}
+\end{equation}
+
+在时间间隔$[t,t+dt]$内，任何一个气体微元都满足能量守恒原理，该定理描述为微元内的能量改变只取决于传入传出能量的多少。在不考虑空气膨胀对外做功的情形，空气微元内能的变化直接反映在温度的变化上。综合以上分析，我们得出以下表达式：
+
+\begin{equation}
+    \begin{aligned}
+        Q_{in} - Q_{out} = \Delta Q\\
+\end{aligned}
+\label{mianq}
+\end{equation}
+
+上式反映了气体微元内能变化，所带来的气体温度变化的关系，在此基础上，我们需要探究热量从高处向低处进行流动的过程，为此运用傅里叶传热定律\cite{2}，用于描述相邻热量的移动多少以及对应的传热率。
+
+\begin{equation}
+    \vec{q} = -k\nabla T =\begin{cases}
+        q_x = -k \frac{\partial T}{\partial  x}\\
+        q_y = -k \frac{\partial T}{\partial  y}\\
+        q_z = -k \frac{\partial T}{\partial  z}\\
+    \end{cases} 
+\end{equation}
+
+$ \vec{q} $为热流密度矢量，表示单位时间内沿单位面积的法向流出的热量。利用上式对微元左右、前后、上下三个方向的热量变化情况进行研究，得到下式：
+\begin{equation}
+    \begin{aligned}
+        Q_{\text{左右}} = k\frac{\partial^2 T}{\partial x^2} dtdV\\
+        Q_{\text{前后}} = k\frac{\partial^2 T}{\partial y^2} dtdV\\
+        Q_{\text{上下}} = k\frac{\partial^2 T}{\partial z^2} dtdV\\
+    \end{aligned}
+    \label{zy}
+\end{equation}
+
+考虑方向性，将式（\ref{zy}）中相加整理，即得到微元流入热量$Q$：
+
+\begin{equation}
+    Q_{in}-Q_{out} = Q_{\text{左右}}+Q_{\text{前后}}+Q_{\text{上下}} = k\cdot \nabla^2 T dtdV
+\end{equation}
+
+随后将$\Delta Q$写为关于温度变化的形式：
+\begin{equation}
+    \begin{aligned}
+        \Delta Q &= c_p * \rho * dV * [T(t+dt,x,y,z)-T(t,z,y,z)]\\
+        &=c\rho \frac{\partial T}{\partial t}dtdV
+    \end{aligned}
+\end{equation}
+
+结合式（\ref{mianq}），我们得到热量传递关于温度变化的公式：
+
+\begin{equation}
+    k\cdot \nabla^2 T dtdV = c\rho \frac{\partial T}{\partial t}dtdV
+\label{}
+\end{equation}
+
+在完成上述理论分析后，我们将对空气微元在房屋中的不同情况进行考虑，
 \section{六、敏感性分析}
 \section{七、模型的评价}
 
