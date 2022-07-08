@@ -27,6 +27,12 @@
 % \begin{lstlisting}[style=matlab-prettifier]
 %     %code
 % \end{lstlisting}
+\renewenvironment{framed}[1][\hsize]
+  {\MakeFramed{\hsize#1\advance\hsize-\width \FrameRestore}}%
+  {\endMakeFramed}
+%   修正framed环境，使之可以变长，用法：
+%   \begin{framed}[1.2/textwidth]...
+
 \begin{document}
 
 \lstdefinestyle{python_style}{
