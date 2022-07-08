@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{ctex}
+\begin{document}
+    \begin{enumerate}
+        \item 1dsa
+        \item 1dsa
+        \item 1dsa
+        \item 1dsa
+        \item 1dsa
+    \end{enumerate}
+
+    {\renewcommand\theenumi{\chinese{enumi}}
+% 规定数字格式为罗马数字
+\renewcommand\labelenumi{\textbf{步骤\theenumi：}}
+% 规定是附录某某
+\begin{enumerate}
+    \item 1dsa
+    \item 1dsa
+    \item 1dsa
+    \item 1dsa
+    \item 1dsa
+\end{enumerate}
+    }
+
+    \begin{enumerate}
+        \item 1dsa
+        \item 1dsa
+        \item 1dsa
+        \item 1dsa
+        \item 1dsa
+    \end{enumerate}
+\end{document}

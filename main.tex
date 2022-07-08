@@ -27,6 +27,12 @@
 % \begin{lstlisting}[style=matlab-prettifier]
 %     %code
 % \end{lstlisting}
+\renewenvironment{framed}[1][\hsize]
+  {\MakeFramed{\hsize#1\advance\hsize-\width \FrameRestore}}%
+  {\endMakeFramed}
+%   修正framed环境，使之可以变长，用法：
+%   \begin{framed}[1.2/textwidth]...
+
 \begin{document}
 
 \lstdefinestyle{python_style}{
@@ -96,6 +102,7 @@
     \item 不开窗
     \item 热传导形式
     \item 室内定压
+    \item 忽略暖气片的几何尺寸，视作是墙面
     
     \textbf{原因：}
 
@@ -153,7 +160,7 @@
 \label{nuanqipian}
 \end {figure}
 
-在$ t=0 $时，热水还未流入管内，此时管内水流温度等于室内温度$ T_{s0} $；
+在$ t=0 $时，热水还未流入管内，此时管内水流温度等于室内温度$ T $；
 
 在经过时间 $t_0$ 后，热水流入管中，此时管中热水长度$l$为:
 
@@ -230,9 +237,10 @@ u = \frac{dT}{dr} \Rightarrow  \frac{du}{dr}=\frac{d^2T}{dr^2}
         q&= k_0*(T(x,y,z,t_0)-T_n(l,t_0))\\
         &= k_0 * (T(f_x(l),f_y(l),f_z(l),t_0)-T_n(l,t_0))
     \end{aligned}
+    \label{11}
 \end{equation}
 
-其中$T,T_n$分别代表室内空气温度和暖气温度，$q$代表热流密度，含义是单位时间内单位面积处发出或接受的热量。我们利用$ q $可以求得一段水柱微元内的热量变化$dQ$，以及由于热量变化所导致的温度变化$dT_n$:
+其中$T,T_n$分别代表室内空气温度和暖气温度，$q$代表热流密度，含义是单位时间内单位面积处发出或接受的热量。$k_0$ 是综合传热系数，将会在求解过程中给出。我们利用$ q $可以求得一段水柱微元内的热量变化$dQ$，以及由于热量变化所导致的温度变化$dT_n$:
 \begin{equation}
     dQ = q* C * dl * dt
 \end{equation}
@@ -246,7 +254,7 @@ $q$代表热流密度，$C$为暖气管的截面周长，又依据比热容的�
 在这里$c$代表水的比热容，$S$代表管道截面积。由于水管中水流不断移动，相邻两段微元之间的温度差很小，近似认为不发生热交换，故在我们的模型中，该暖水微元的温度变化数值$dT$为后一时刻的同一段水柱温度变化，因此式（\ref{dt}）被解释为：
 \begin{equation}
 dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
-\label{}
+\label{14}
 \end{equation}
 
 也就是说在$ dt $的时间间隔内，暖水微元移动了$dl$距离，但是在分析温差变化时，还是计算同一段水柱的变化数值。至此，我们已经阐述了流水在暖气管道中的热交换问题，在下面的内容中，我们将同样使用微分的方法，以能量守恒定律，牛顿冷却定律，傅里叶传热定律建立屋内空气变化模型。
@@ -286,6 +294,7 @@ dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
         \text{地面：}&(x_{11},y_{11},z_{11})&(x_{12},y_{12},z_{12})\\
         &(x_{13},y_{13},z_{13})&(x_{14},y_{14},z_{14})\\
     \end{aligned}
+    \label{fw}
 \end{equation}
 
 可以注意到，在房屋内的空气可以进行分析，对于那些直接同外壁接触的空气微元可能发生外部的热交换，而没有同外壁接触的空气微元则只进行空气微元的交换行为，这为我们分析空气传热问题提供了有利条件。
@@ -293,11 +302,16 @@ dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
 为了分析墙壁和玻璃窗的散热速率，我们计算其传热系数$K$\cite{1}，其计算公式如下：
 
 \begin{equation}
-    K = \frac{1}{\frac{1}{h_1}+\frac{\sigma}{\lambda}+\frac{1}{h_2}}
+    \large K = \frac{1}{\frac{1}{h_1}+\frac{\sigma}{\lambda}+\frac{1}{h_2}}
+    \label{16}
 \end{equation}
 
-其中$h_1$和$ h_2 $是材料的内外表面换热阻值，$ \sigma $是裁量的厚度，$ \lambda $是材料的导热系数，依据这一公式可以求解出每平方米墙面或玻璃传递的热量。
-\subsubsection{室内空气传热模型}
+其中$h_1$和$ h_2 $是材料的热交换系数，$ \sigma $是裁量的厚度，$ \lambda $是材料的导热系数，依据这一公式可以求解出每平方米墙面或玻璃传递热量能力的大小。$K$的量纲为$W/m^2\cdot K \cdot s$,含义为单位时间内单位面积在内外相差1$K$（开尔文温度）时,传递热量的多少。利用上式可以推知，墙体（或窗户）和外界温度差为$\Delta T$时，其热流密度为：
+\begin{equation}
+    q = K * \Delta T
+    \label{17}
+\end{equation}
+\subsubsection{室内空气传热模型建立}
 \begin {figure}[h]
 \centering % 居中显示
 \includegraphics[width=0.7\textwidth]{weiyuan.png}
@@ -351,6 +365,7 @@ $ \vec{q} $为热流密度矢量，表示单位时间内沿单位面积的法向
         \Delta Q &= c_p * \rho * dV * [T(t+dt,x,y,z)-T(t,z,y,z)]\\
         &=c\rho \frac{\partial T}{\partial t}dtdV
     \end{aligned}
+    \label{23}
 \end{equation}
 
 结合式（\ref{mianq}），我们得到热量传递关于温度变化的公式：
@@ -360,7 +375,116 @@ $ \vec{q} $为热流密度矢量，表示单位时间内沿单位面积的法向
 \label{}
 \end{equation}
 
-在完成上述理论分析后，我们将对空气微元在房屋中的不同情况进行考虑，
+在完成上述理论分析后，我们将对空气微元在房屋中的不同情况进行考虑，在空气微元处于房屋的内部，即微元相接触的仍然是空气，在这一情况可以认为微元在相邻的空气微元之间进行热交换，没有额外的热源进行吸放热。
+
+而在房屋内侧边界处，也就是在式（\ref{fw}）中标注的坐标范围内，空气微元在同相邻微元进行热交换的同时，还受到边界的影响而从外部热源吸热和放热。这些热源包括放热的暖气片，吸热的外墙，窗户以及天花板，以及隔绝温度交换的内墙和地面。
+
+我们利用5.1.1中的式（\ref{11}）与式（\ref{14}）分别描述了暖气片微元同空气之间的热流密度$q$，以及微元处温度变化同时间$t$和空间$l$的变化关系。根据5.1.2中吸热的外墙等进行分析，我们使用式（\ref{16},\ref{17}）进行计算。
+
+
+借鉴有限元\cite{4}的分析思想，房屋空气任意时刻的温度分布函数$T = f(x,y,z,t)$应当是一个连续的函数，但在热源房屋这一复杂情况下，难以求解其表达式。因此将室内空气划分为在房屋内部的单元，单元形状为长宽各为$[dx,dy,dz]$的正六面体，如图（\ref{kongqiweiyuan}）所示。
+
+
+首先就房屋内部的微元进行分析，对于图（\ref{wya}），其热量转移方程（式\ref{23}）中的偏微分方程可以写作六个方向上的差分方程，在满足能量守恒定律的条件下，计算了空气单元处的温度变化：
+
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.7\textwidth]{wya.png}
+\caption{室内微元分析} % 标题
+\label{wya}
+\end {figure}
+
+\begin{equation}
+        \begin{cases}
+            Q_{x+} = k \cdot (T(x+dx,y,z,t)-T(z,y,z,t))dydzdt\\
+            Q_{x-} = k \cdot (T(x-dx,y,z,t)-T(z,y,z,t))dydzdt\\
+            Q_{y+} = k \cdot (T(x,y+dy,z,t)-T(z,y,z,t))dxdzdt\\
+            Q_{y-} = k \cdot (T(x,y-dy,z,t)-T(z,y,z,t))dxdzdt\\
+            Q_{z+} = k \cdot (T(x,y,z+dz,t)-T(z,y,z,t))dxdydt\\
+            Q_{z-} = k \cdot (T(x,y,z-dz,t)-T(z,y,z,t))dxdydt\\
+        \end{cases}
+        \label{chafenw}
+\end{equation}
+
+对式（\ref{chafenw}）进行整理，求解微元周围处热量变化综合求得任意一处微元在时间$[t,t+dt]$下的热量变化：
+\begin{equation}
+    \begin{aligned}
+        \Delta Q(x,y,z,t) = k \cdot (\sum_{i\in c}T_i-6*T(x,y,z,t))*a^2*dt\\
+        c = \{x+,x-,y+,y-,z+,z-\}
+    \end{aligned}
+\label{shi1}
+\end{equation}
+
+热量变化时，微元对应的温度变化情况为：
+
+\begin{equation}
+    \begin{aligned}
+        \Delta T(x,y,z,t) &= \frac{\Delta Q(x,y,z,t)}{c_p * \rho * a^3}\\
+        & = k \cdot \frac{(\sum_{i\in c}T_i-6*T(x,y,z,t))*dt}{c_p * \rho * a}
+    \end{aligned}
+    \label{wdjs}
+\end{equation}
+
+综合上述过程，我们已经得出内部单元的温度变化情况，其热量传递和温度变化的过程又周围六个面的微元决定。
+
+\newpage
+在分析完毕内部单元后，就和房屋边界处单元进行分析，房屋边界处单元示意图如下所示：
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.7\textwidth]{wyb.png}
+\caption{房屋边界处空气单元示意图} % 标题
+\label{five}
+\end {figure}
+
+外部单元在空间分布上处于式（\ref{15}）划定的边界范围内，因此每个边界单元至少有一面不与空气接触，但是可能随着接触外壁种类的不同而发生不同的热交换行为，具体表现在接触面的热流密度$q$上，而在其余与空气接触的面中，热转移过程仍然满足式（\ref{chafenw}）中的部分规则。我们总结热量转移式如下：
+\begin{equation}
+    \begin{aligned}
+        \Delta Q(x,y,z,t) = [k \cdot (\sum_{i\in c-c'}T_i-|c'|*T(x,y,z,t))+\sum_{i\in c'}q_i]*a^2*dt\\
+        c = \{x+,x-,y+,y-,z+,z-\},c'\text{代表与房屋边界接触的单元面}
+    \end{aligned}
+\label{}
+\end{equation}
+
+其中$q$的取值根据边界分别为吸热边界（外墙，玻璃），绝热（地面，内墙），以及放热边界（暖气片）所决定，表述为下式：
+\begin{equation}
+    q = \begin{cases}
+         k_0 * (T(f_x(l),f_y(l),f_z(l),t_0)-T_n(l,t_0)),& \text{放热边界}\\
+         0,& ,\text{绝热边界}\\
+        \Delta T \cdot \frac{1}{\frac{1}{h_1}+\frac{\sigma}{\lambda}+\frac{1}{h_2}}&,\text{吸热边界}\\
+    \end{cases}
+    \label{shi2}
+\end{equation}
+
+边界单元的温度变化计算公式与内部相同，由式（\ref{wdjs}）给出。综合上述分析，我们已经建立了房屋内各个部分的空气单元的热量温度模型。要得出在任意时刻房间内任意地点的温度，需要在确定边界条件的情况下，模拟房间整体的传热过程，进行迭代计算。我们描述迭代计算的步骤如下，具体的计算结果，将在下一小节中给出。
+{
+    \renewcommand\theenumi{\chinese{enumi}}
+    % 规定数字格式为罗马数字
+    \renewcommand\labelenumi{\textbf{步骤\theenumi：}}
+    % 规定是附录某某
+    \begin{framed}[0.7\textwidth]
+        \centering
+        \begin{minipage}[h][0.9\textwidth][c]{24em}
+            \begin{enumerate}
+                \item 给定房屋内外的初始条件，包括以下几点：
+                \begin{enumerate}
+                    \item 初始室温，设定为同外部温度一致；
+                    \item 进水管的流量以及入水温度；
+                    \item 房屋暖气，窗户，墙壁等几何尺寸，对应的放热系数等必要参数；
+                    \item 空气单元的尺寸和更新的时间步长。
+                \end{enumerate}
+                \item 依据初始条件遍历,利用式（\ref{shi1},\ref{shi2}）计算每个单元处的热量转移量。
+                \item 计算热量转移后利用式（\ref{wdjs}）来计算传递热量后空气单元的温度变化。
+                \item 重复步骤二，直至计算处所需的时间长度。
+            \end{enumerate}
+        \end{minipage}
+\end{framed}
+}
+
+\subsubsection{屋内空气传热模型求解}
+
+\subsection{}
+
+
 \section{六、敏感性分析}
 \section{七、模型的评价}
 
