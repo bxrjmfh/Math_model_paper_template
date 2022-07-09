@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  8 JUL 2022 19:48
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  9 JUL 2022 16:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -894,7 +894,20 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \c@mdf@env@ii=\count338
 \c@mdf@zref@counter=\count339
 Package zref Info: New property: mdf@pagevalue on input line 895.
-) (./main.aux)
+) (./main.aux
+
+LaTeX Warning: Label `five' multiply defined.
+
+
+LaTeX Warning: Label `five' multiply defined.
+
+
+LaTeX Warning: Label `five' multiply defined.
+
+
+LaTeX Warning: Label `five' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 36.
@@ -1039,107 +1052,143 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 87.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 87.
- [2]
+ [2] [3]
 
-LaTeX Warning: Citation `2' on page 3 undefined on input line 153.
+LaTeX Warning: Citation `2' on page 4 undefined on input line 170.
 
 File: nuanqipian.png Graphic file (type bmp)
 <nuanqipian.png>
+[4]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3] [4]
-
-LaTeX Warning: Reference `jiemian' on page 5 undefined on input line 187.
+LaTeX Warning: Reference `jiemian' on page 5 undefined on input line 204.
 
 
-LaTeX Warning: Citation `1' on page 5 undefined on input line 214.
+LaTeX Warning: Citation `1' on page 5 undefined on input line 231.
 
 
-LaTeX Warning: Citation `1' on page 5 undefined on input line 233.
+LaTeX Warning: Citation `1' on page 5 undefined on input line 250.
 
 [5]
 
-LaTeX Warning: Citation `3' on page 6 undefined on input line 268.
+LaTeX Warning: Citation `3' on page 6 undefined on input line 289.
 
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 283.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 283.
 [6]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 304.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 304.
 
-LaTeX Warning: Citation `1' on page 7 undefined on input line 302.
+
+LaTeX Warning: Citation `1' on page 7 undefined on input line 323.
 
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 305.
+LaTeX Font Warning: Command \large invalid in math mode on input line 326.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.045pt on input line 305.
+(Font)              scaled to size 12.045pt on input line 326.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.045pt on input line 307.
+(Font)              scaled to size 12.045pt on input line 328.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 307.
+(Font)              scaled to size 8.0pt on input line 328.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 307.
+(Font)              scaled to size 6.0pt on input line 328.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.045pt on input line 307.
+(Font)              scaled to size 12.045pt on input line 328.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 307.
+(Font)              scaled to size 8.0pt on input line 328.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 307.
-LaTeX Font Info:    Calculating math sizes for size <> on input line 307.
+(Font)              scaled to size 6.0pt on input line 328.
+LaTeX Font Info:    Calculating math sizes for size <> on input line 328.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 1.0pt on input line 307.
+(Font)              scaled to size 1.0pt on input line 328.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 0.73pt on input line 307.
+(Font)              scaled to size 0.73pt on input line 328.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 0.55pt on input line 307.
+(Font)              scaled to size 0.55pt on input line 328.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 1.0pt on input line 307.
+(Font)              scaled to size 1.0pt on input line 328.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 0.73pt on input line 307.
+(Font)              scaled to size 0.73pt on input line 328.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 0.55pt on input line 307.
+(Font)              scaled to size 0.55pt on input line 328.
 File: weiyuan.png Graphic file (type bmp)
 <weiyuan.png>
+[7]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Citation `2' on page 8 undefined on input line 357.
 
+[8]
 
-LaTeX Warning: Citation `2' on page 7 undefined on input line 336.
-
-[7] [8]
-
-LaTeX Warning: Citation `4' on page 9 undefined on input line 385.
+LaTeX Warning: Citation `4' on page 9 undefined on input line 406.
 
 
-LaTeX Warning: Reference `kongqiweiyuan' on page 9 undefined on input line 385.
+LaTeX Warning: Reference `kongqiweiyuan' on page 9 undefined on input line 406.
 
 File: wya.png Graphic file (type bmp)
 <wya.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [9] [10]
 File: wyb.png Graphic file (type bmp)
 <wyb.png>
 
 
-LaTeX Warning: Reference `15' on page 11 undefined on input line 439.
+LaTeX Warning: Reference `15' on page 11 undefined on input line 460.
 
-[11] [12]
+[11]
+
+LaTeX Warning: Citation `5' on page 12 undefined on input line 509.
+
+
+LaTeX Warning: Citation `6' on page 12 undefined on input line 511.
+
+File: pid.png Graphic file (type bmp)
+<pid.png>
+
+LaTeX Warning: Citation `6' on page 12 undefined on input line 516.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12] [13]
+
+LaTeX Warning: Citation `6' on page 14 undefined on input line 553.
+
+
+LaTeX Warning: Citation `5' on page 14 undefined on input line 553.
+
+
+Overfull \hbox (0.11044pt too wide) in paragraph at lines 553--554
+[]\TU/FandolSong-Regular(0)/m/n/10.53937 在 规 定 \T1/ntxtlf/m/n/10.53937 PID \TU/FandolSong-Regular(0)/m/n/10.53937 对 水 温 的 控 制 方 式，|  给 出 误 差 项 等 观 测 指 标 的 计 算 方 法 后，|  我 们 需 要 确 定 $\OML/ntxmi/m/it/10.53937 K[]; K[]; K[]$
+ []
+
+File: liuc.jpg Graphic file (type bmp)
+<liuc.jpg>
+File: wd1.png Graphic file (type bmp)
+<wd1.png>
+[14]
+File: wd2.png Graphic file (type bmp)
+<wd2.png>
+ [15] [16]
 No file main.bbl.
-[13] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+[17] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [14] (./main.aux)
+) [18] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 15973 strings out of 476919
- 319341 string characters out of 5825425
- 873566 words of memory out of 5000000
- 35633 multiletter control sequences out of 15000+600000
+ 16002 strings out of 476919
+ 319582 string characters out of 5825425
+ 876839 words of memory out of 5000000
+ 35656 multiletter control sequences out of 15000+600000
  457280 words of font info for 134 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,12n,104p,478b,1526s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,14n,104p,478b,1526s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (14 pages).
+Output written on main.pdf (18 pages).
