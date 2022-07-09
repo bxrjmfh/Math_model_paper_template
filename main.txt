@@ -1,0 +1,102 @@
+%房间温度求解主函数
+%第二类边界条件下的有限元差分
+clear;clc;
+T_out = 0;          % 外部温度
+T_in = 0;           % 房间内初始温度
+T0_water = 60;      % 热水进入温度60度
+v_water = 1;        % 热水每小时每立方米 
+dt = 0.01;           % 时间微元
+time = 3600;        % 总仿真时间
+a = 0.152;          % 定义散热系数
+k_air = 30;         % 对流传热系数 
+C_air = 1005;       % 空气比热容 
+rho_air = 1.293;    % 空气密度
+X = 10/0.05+1;      
+Y = 5/0.05+1;
+Z = 3/0.05+1;
+dx = 0.05;
+dy = 0.05;
+dz = 0.05;
+Ax = (-2*eye(X)+diag(ones(1, X-1), 1)+diag(ones(1, X-1), -1));  % 定义X方向上的A矩阵
+Ay = (-2*eye(Y)+diag(ones(1, Y-1), 1)+diag(ones(1, Y-1), -1));  % 定义Y方向上的A矩阵
+Az = (-2*eye(Z)+diag(ones(1, Z-1), 1)+diag(ones(1, Z-1), -1));  % 定义Z方向上的A矩阵
+Temp = ones(X,Y,Z)*T_in; %初始温度均匀分布
+q_base = zeros(X,Y); %设置绝热条件
+q_right = zeros(X,Z);
+q_left = zeros(X,Z);
+dTemp = zeros(201,101,61); %温度变换矩阵，需要结合最小单位时间才可以
+%获取六个边界面的第二类边界条件
+%有限元差分法
+INDEX = 1;
+for t = 1:time/dt
+    disp(t*dt)
+    %首先计算六个边界分布,八个拐角单独考虑
+    %对于内部空气热扩散
+    [q_top,q_front,q_back] = get_bound_mat(v_water,T0_water,Temp,T_out); %获得边界热流密度矢量，每次都需要更新
+    dTempx = zeros(X,Y,Z);
+    dTempy = zeros(X,Y,Z);
+    dTempz = zeros(X,Y,Z);
+    for zzz = 1:Z %尝试求解三维差分矩阵
+        dTempx(:,:,zzz) = Ax*Temp(:,:,zzz);
+        dTempy(:,:,zzz) = Temp(:,:,zzz)*Ay;
+    end
+    for xxx = 1:X
+        dTempz(xxx,:,:) = squeeze(Temp(xxx,:,:))*Az;
+    end
+    dTemp = a^2*(dTempz+dTempy+dTempx)/(dx^2); %计算内部的空气导热情况
+    %对于六个边界面分析，一个方向有边界参与
+    dTemp(:,:,end) = ((k_air*dt*dx*dy*dz*(dTempx(:,:,end))/(dx^2))+(k_air*dt*dx*dy*dz*dTempy(:,:,end)/(dy^2))+((-q_top(:,:)+((-k_air*(Temp(:,:,end)-Temp(:,:,end-1)))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz); %上边界
+    dTemp(:,:,1) = ((k_air*dt*dx*dy*dz*(dTempx(:,:,1))/(dx^2))+(k_air*dt*dx*dy*dz*dTempy(:,:,1)/(dy^2))+((q_base(:,:)-(-k_air*(Temp(:,:,2)-Temp(:,:,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz); %下边界
+    dTemp(:,1,:) = (squeeze(k_air*dt*dx*dy*dz*(dTempx(:,1,:))/(dx^2))+((q_left(:,:)-(squeeze(-k_air*(Temp(:,2,:)-Temp(:,1,:))/dy)))*dt*dx*dz)+squeeze(k_air*dt*dx*dy*dz*dTempz(:,1,:)/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz); %左边界
+    dTemp(:,end,:) = (squeeze(k_air*dt*dx*dy*dz*(dTempx(:,end,:))/(dx^2))+((-q_right(:,:)+squeeze(-k_air*(Temp(:,end,:)-Temp(:,end-1,:))/dy))*dt*dx*dz)+squeeze(k_air*dt*dx*dy*dz*dTempz(:,end,:)/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz); %右边界
+    dTemp(end,:,:) = (((-q_front(:,:)+squeeze(-k_air*(Temp(end,:,:)-Temp(end-1,:,:))/dx))*dt*dy*dz)+squeeze(k_air*dt*dx*dy*dz*dTempy(end,:,:)/(dy^2))+squeeze(k_air*dt*dx*dy*dz*dTempz(end,:,:)/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz); %前边界
+    dTemp(1,:,:) = (((q_back(:,:)-squeeze(-k_air*(Temp(2,:,:)-Temp(1,:,:))/dx))*dt*dy*dz)+squeeze(k_air*dt*dx*dy*dz*dTempy(1,:,:)/(dy^2))+squeeze(k_air*dt*dx*dy*dz*dTempz(1,:,:)/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz); %后边界
+    %对于十二条边，两个方向有边界参与
+    
+%     dTemp(1,1,2:Z-1) = (((q_back(1,2:Z-1)-(-k_air*(Temp(2,1,2:Z-1)-Temp(1,1,2:Z-1))/dx))*dt*dy*dz)+((q_left(1,2:Z-1)-(-k_air*(Temp(1,2,2:Z-1)-Temp(1,1,2:Z-1))/dy))*dt*dx*dz)+squeeze(k_air*dt*dx*dy*dz*(dTempz(1,1,2:Z-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(1,end,2:Z-1) = (((q_back(end,2:Z-1)-(-k_air*(Temp(2,end,2:Z-1)-Temp(1,end,2:Z-1))/dx))*dt*dy*dz)+((-q_right(1,2:Z-1)+(-k_air*(Temp(1,end,2:Z-1)-Temp(1,end-1,2:Z-1))/dy))*dt*dx*dz)+squeeze(k_air*dt*dx*dy*dz*(dTempz(1,end,2:Z-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(end,end,2:Z-1) = (((-q_front(end,2:Z-1)+(-k_air*(Temp(end,end,2:Z-1)-Temp(end-1,end,2:Z-1))/dx))*dt*dy*dz)+((-q_right(end,2:Z-1)+(-k_air*(Temp(end,end,2:Z-1)-Temp(end,end-1,2:Z-1))/dy))*dt*dx*dz)+squeeze(k_air*dt*dx*dy*dz*(dTempz(end,end,2:Z-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(end,1,2:Z-1) = (((-q_front(1,2:Z-1)+(-k_air*(Temp(end,1,2:Z-1)-Temp(end-1,1,2:Z-1))/dx))*dt*dy*dz)+((q_left(end,2:Z-1)-(-k_air*(Temp(end,2,2:Z-1)-Temp(end,1,2:Z-1))/dy))*dt*dx*dz)+squeeze(k_air*dt*dx*dy*dz*(dTempz(end,1,2:Z-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+% 
+%     
+%     dTemp(2:X-1,1,end) = ((k_air*dt*dx*dy*dz*(dTempx(2:X-1,1,end))/(dx^2))+((q_left(2:X-1,end)-(-k_air*(Temp(2:X-1,2,end)-Temp(2:X-1,1,end))/dy))*dt*dx*dz)+((-q_top(2:X-1,1)+(-k_air*(Temp(2:X-1,1,end)-Temp(2:X-1,1,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(2:X-1,end,end) = ((k_air*dt*dx*dy*dz*(dTempx(2:X-1,end,end))/(dx^2))+((-q_right(2:X-1,end)+(-k_air*(Temp(2:X-1,end,end)-Temp(2:X-1,end-1,end))/dy))*dt*dx*dz)+((-q_top(2:X-1,end)+(-k_air*(Temp(2:X-1,end,end)-Temp(2:X-1,end,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(2:X-1,end,1) = ((k_air*dt*dx*dy*dz*(dTempx(2:X-1,end,1))/(dx^2))+((-q_right(2:X-1,1)+(-k_air*(Temp(2:X-1,end,1)-Temp(2:X-1,end-1,1))/dy))*dt*dx*dz)+((q_base(2:X-1,end)-(-k_air*(Temp(2:X-1,end,2)-Temp(2:X-1,end,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(2:X-1,1,1) = ((k_air*dt*dx*dy*dz*(dTempx(2:X-1,1,1))/(dx^2))+((q_left(2:X-1,1)-(-k_air*(Temp(2:X-1,2,1)-Temp(2:X-1,1,1))/dy))*dt*dx*dz)+((q_base(2:X-1,1)-(-k_air*(Temp(2:X-1,1,2)-Temp(2:X-1,1,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+%     
+%     
+%     dTemp(1,2:Y-1,end) = (((q_back(2:Y-1,end)-(-k_air*(Temp(2,2:Y-1,end)-Temp(1,2:Y-1,end))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(dTempy(1,2:Y-1,end))/(dx^2))+((-q_top(1,2:Y-1)+(-k_air*(Temp(1,2:Y-1,end)-Temp(1,2:Y-1,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(1,2:Y-1,1) = (((q_back(2:Y-1,1)-(-k_air*(Temp(2,2:Y-1,1)-Temp(1,2:Y-1,1))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(dTempy(1,2:Y-1,1))/(dx^2))+((q_base(1,2:Y-1)-(-k_air*(Temp(1,2:Y-1,2)-Temp(1,2:Y-1,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(end,2:Y-1,1) = (((-q_front(2:Y-1,1)+(-k_air*(Temp(end,2:Y-1,1)-Temp(end-1,2:Y-1,1))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(dTempy(end,2:Y-1,1))/(dx^2))+((q_base(end,2:Y-1)-(-k_air*(Temp(end,2:Y-1,2)-Temp(end,2:Y-1,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+%     dTemp(end,2:Y-1,end) = (((-q_front(2:Y-1,end)+(-k_air*(Temp(end,2:Y-1,end)-Temp(end-1,2:Y-1,end))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(dTempy(end,2:Y-1,end))/(dx^2))+((-q_top(end,2:Y-1)+(-k_air*(Temp(end,2:Y-1,end)-Temp(end,2:Y-1,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+
+    for zz = 2:Z-1
+        dTemp(1,1,zz) = (((q_back(1,zz)-(-k_air*(Temp(2,1,zz)-Temp(1,1,zz))/dx))*dt*dy*dz)+((q_left(1,zz)-(-k_air*(Temp(1,2,zz)-Temp(1,1,zz))/dy))*dt*dx*dz)+(k_air*dt*dx*dy*dz*(Temp(1,1,zz+1)-2*Temp(1,1,zz)-Temp(1,1,zz-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(1,end,zz) = (((q_back(end,zz)-(-k_air*(Temp(2,end,zz)-Temp(1,end,zz)/dx)))*dt*dy*dz)+((-q_right(1,zz)+(-k_air*(Temp(1,end,zz)-Temp(1,end-1,zz))/dy))*dt*dx*dz)+(k_air*dt*dx*dy*dz*(Temp(1,end,zz+1)-2*Temp(1,end,zz)-Temp(1,end,zz-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(end,end,zz) = (((-q_front(end,zz)+(-k_air*(Temp(end,end,zz)-Temp(end-1,end,zz))/dx))*dt*dy*dz)+((-q_right(end,zz)+(-k_air*(Temp(end,end,zz)-Temp(end,end-1,zz))/dy))*dt*dx*dz)+(k_air*dt*dx*dy*dz*(Temp(end,end,zz+1)-2*Temp(end,end,zz)-Temp(end,end,zz-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(end,1,zz) = (((-q_front(1,zz)+(-k_air*(Temp(end,1,zz)-Temp(end-1,1,zz))/dx))*dt*dy*dz)+((q_left(end,zz)-(-k_air*(Temp(end,2,zz)-Temp(end,1,zz))/dy))*dt*dx*dz)+(k_air*dt*dx*dy*dz*(Temp(end,1,zz+1)-2*Temp(end,1,zz)-Temp(end,1,zz-1))/(dz^2)))/(C_air*rho_air*dt*dx*dy*dz);
+    end
+    for xx = 2:X-1
+        dTemp(xx,1,end) = ((k_air*dt*dx*dy*dz*(Temp(xx+1,1,end)-2*Temp(xx,1,end)-Temp(xx-1,1,end))/(dx^2))+((q_left(xx,end)-(-k_air*(Temp(xx,2,end)-Temp(xx,1,end))/dy))*dt*dx*dz)+((-q_top(xx,1)+(-k_air*(Temp(xx,1,end)-Temp(xx,1,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(xx,end,end) = ((k_air*dt*dx*dy*dz*(Temp(xx+1,end,end)-2*Temp(xx,end,end)-Temp(xx-1,end,end))/(dx^2))+((-q_right(xx,end)+(-k_air*(Temp(xx,end,end)-Temp(xx,end-1,end))/dy))*dt*dx*dz)+((-q_top(xx,end)+(-k_air*(Temp(xx,end,end)-Temp(xx,end,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(xx,end,1) = ((k_air*dt*dx*dy*dz*(Temp(xx+1,end,1)-2*Temp(xx,end,1)-Temp(xx-1,end,1))/(dx^2))+((-q_right(xx,1)+(-k_air*(Temp(xx,end,1)-Temp(xx,end-1,1))/dy))*dt*dx*dz)+((q_base(xx,end)-(-k_air*(Temp(xx,end,2)-Temp(xx,end,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(xx,1,1) = ((k_air*dt*dx*dy*dz*(Temp(xx+1,1,1)-2*Temp(xx,1,1)-Temp(xx-1,1,1))/(dx^2))+((q_left(xx,1)-(-k_air*(Temp(xx,2,1)-Temp(xx,1,1))/dy))*dt*dx*dz)+((q_base(xx,1)-(-k_air*(Temp(xx,1,2)-Temp(xx,1,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    end
+    for yy = 2:Y-1
+        dTemp(1,yy,end) = (((q_back(yy,end)-(-k_air*(Temp(2,yy,end)-Temp(1,yy,end))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(Temp(1,yy+1,end)-2*Temp(1,yy,end)-Temp(1,yy-1,end))/(dx^2))+((-q_top(1,yy)+(-k_air*(Temp(1,yy,end)-Temp(1,yy,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(1,yy,1) = (((q_back(yy,1)-(-k_air*(Temp(2,yy,1)-Temp(1,yy,1))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(Temp(1,yy+1,1)-2*Temp(1,yy,1)-Temp(1,yy-1,1))/(dx^2))+((q_base(1,yy)-(-k_air*(Temp(1,yy,2)-Temp(1,yy,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(end,yy,1) = (((-q_front(yy,1)+(-k_air*(Temp(end,yy,1)-Temp(end-1,yy,1))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(Temp(end,yy+1,1)-2*Temp(end,yy,1)-Temp(end,yy-1,1))/(dx^2))+((q_base(end,yy)-(-k_air*(Temp(end,yy,2)-Temp(end,yy,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+        dTemp(end,yy,end) = (((-q_front(yy,end)+(-k_air*(Temp(end,yy,end)-Temp(end-1,yy,end))/dx))*dt*dy*dz)+(k_air*dt*dx*dy*dz*(Temp(end,yy+1,end)-2*Temp(end,yy,end)-Temp(end,yy-1,end))/(dx^2))+((-q_top(end,yy)+(-k_air*(Temp(end,yy,end)-Temp(end,yy,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    end
+
+    %对于八个拐点，三个方向有边界参与
+    dTemp(1,1,1) = (((q_back(1,1)-(-k_air*(Temp(2,1,1)-Temp(1,1,1))/dx))*dt*dy*dz)+((q_left(1,1)-(-k_air*(Temp(1,2,1)-Temp(1,1,1))/dy))*dt*dx*dz)+((q_base(1,1)-(-k_air*(Temp(1,1,2)-Temp(1,1,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    dTemp(1,1,end) = (((q_back(1,end)-(-k_air*(Temp(2,1,end)-Temp(1,1,end))/dx))*dt*dy*dz)+((q_left(1,end)-(-k_air*(Temp(1,2,end)-Temp(1,1,end))/dy))*dt*dx*dz)+((-q_top(1,1)+(-k_air*(Temp(1,1,end)-Temp(1,1,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    dTemp(1,end,end) = (((q_back(end,end)-(-k_air*(Temp(2,end,end)-Temp(1,end,end))/dx))*dt*dy*dz)+((-q_right(1,end)+(-k_air*(Temp(1,end,end)-Temp(1,end-1,end))/dy))*dt*dx*dz)+((-q_top(1,end)+(-k_air*(Temp(1,end,end)-Temp(1,end,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    dTemp(1,end,1) = (((q_back(end,1)-(-k_air*(Temp(2,end,1)-Temp(1,end,1))/dx))*dt*dy*dz)+((-q_right(1,1)+(-k_air*(Temp(1,end,1)-Temp(1,end-1,1))/dy))*dt*dx*dz)+((q_base(1,end)-(-k_air*(Temp(1,end,2)-Temp(1,end,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    dTemp(end,1,1) = (((-q_front(1,1)+(-k_air*(Temp(end,1,1)-Temp(end-1,1,1))/dx))*dt*dy*dz)+((q_left(end,1)-(-k_air*(Temp(end,2,1)-Temp(end,1,1))/dy))*dt*dx*dz)+((q_base(end,1)-(-k_air*(Temp(end,1,2)-Temp(end,1,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    dTemp(end,1,end) = (((-q_front(1,end)+(-k_air*(Temp(end,1,end)-Temp(end-1,1,end))/dx))*dt*dy*dz)+((q_left(end,end)-(-k_air*(Temp(end,2,end)-Temp(end,1,end))/dy))*dt*dx*dz)+((-q_top(end,1)+(-k_air*(Temp(end,1,end)-Temp(end,1,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    dTemp(end,end,end) = (((-q_front(end,end)+(-k_air*(Temp(end,end,end)-Temp(end-1,end,end))/dx))*dt*dy*dz)+((-q_right(end,end)+(-k_air*(Temp(end,end,end)-Temp(end,end-1,end))/dy))*dt*dx*dz)+((-q_top(end,end)+(-k_air*(Temp(end,end,end)-Temp(end,end,end-1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    dTemp(end,end,1) = (((-q_front(end,1)+(-k_air*(Temp(end,end,1)-Temp(end-1,end,1))/dx))*dt*dy*dz)+((-q_right(end,1)+(-k_air*(Temp(end,end,1)-Temp(end,end-1,1))/dy))*dt*dx*dz)+((q_base(end,end)-(-k_air*(Temp(end,end,2)-Temp(end,end,1))/dz))*dt*dy*dx))/(C_air*rho_air*dt*dx*dy*dz);
+    Temp = dTemp*dt + Temp; %更新温度
+end

@@ -1,0 +1,189 @@
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  9 JUL 2022 18:40
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**tests
+(./tests.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(c:/texlive/2021/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count175
+\c@section=\count176
+\c@subsection=\count177
+\c@subsubsection=\count178
+\c@paragraph=\count179
+\c@subparagraph=\count180
+\c@figure=\count181
+\c@table=\count182
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (c:/texlive/2021/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip49
+\subfigcapskip=\skip50
+\subfigcaptopadj=\dimen139
+\subfigbottomskip=\skip51
+\subfigcapmargin=\dimen140
+\subfiglabelskip=\skip52
+\c@subfigure=\count183
+\c@lofdepth=\count184
+\c@subtable=\count185
+\c@lotdepth=\count186
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(c:/texlive/2021/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip53
+\subfig@bottom=\skip54
+) (c:/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+) (c:/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (c:/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 105.
+ (c:/texlive/2021/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2021/03/18 v5.0k Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
+) (c:/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2021-03-18 L3 backend support: XeTeX
+ (|extractbb --version)
+\c__kernel_sys_dvipdfmx_version_int=\count187
+\l__color_backend_stack_int=\count188
+\g__color_backend_stack_int=\count189
+\g__graphics_track_int=\count190
+\l__pdf_internal_box=\box47
+\g__pdf_backend_object_int=\count191
+\g__pdf_backend_annotation_int=\count192
+\g__pdf_backend_link_int=\count193
+)
+No file tests.aux.
+\openout1 = `tests.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4.
+(c:/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+
+
+LaTeX Warning: File `3d3.png' not found on input line 14.
+
+./tests.tex:14: Unable to load picture or PDF file '3d3.png'.
+<to be read again> 
+                   }
+l.14     }
+          
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+./tests.tex:14: Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14     }
+          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: 3d3.png Graphic file (type bmp)
+<3d3.png>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 14.
+Missing character: There is no 后 (U+540E) in font [lmroman8-regular]:mapping=tex-text;!
+Missing character: There is no 结 (U+7ED3) in font [lmroman8-regular]:mapping=tex-text;!
+Missing character: There is no 果 (U+679C) in font [lmroman8-regular]:mapping=tex-text;!
+
+LaTeX Warning: File `3d4.png' not found on input line 20.
+
+./tests.tex:20: Unable to load picture or PDF file '3d4.png'.
+<to be read again> 
+                   }
+l.20     }
+          
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+./tests.tex:20: Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20     }
+          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: 3d4.png Graphic file (type bmp)
+<3d4.png>
+Missing character: There is no 后 (U+540E) in font [lmroman8-regular]:mapping=tex-text;!
+Missing character: There is no 结 (U+7ED3) in font [lmroman8-regular]:mapping=tex-text;!
+Missing character: There is no 果 (U+679C) in font [lmroman8-regular]:mapping=tex-text;!
+Missing character: There is no 房 (U+623F) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 屋 (U+5C4B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 温 (U+6E29) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 度 (U+5EA6) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 在 (U+5728) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 方 (U+65B9) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 向 (U+5411) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 上 (U+4E0A) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 的 (U+7684) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 截 (U+622A) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 面 (U+9762) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 图 (U+56FE) in font [lmroman10-regular]:mapping=tex-text;!
+[1
+
+] (./tests.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1080 strings out of 476919
+ 16905 string characters out of 5825425
+ 306618 words of memory out of 5000000
+ 21108 multiletter control sequences out of 15000+600000
+ 403446 words of font info for 29 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 68i,5n,74p,194b,278s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Error 1 (driver return code) generating output;
+file tests.pdf may not be valid.

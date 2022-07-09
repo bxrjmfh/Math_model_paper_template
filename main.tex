@@ -1,5 +1,8 @@
 \documentclass{my_paper}
 \usepackage{ctex}
+\newcommand{\lunwenbiaoti}{\fontsize{15.75pt}{0}\heiti 基于PID自动控制的暖气房屋控温模型}
+\newcommand{\zhaiyao}{\fontsize{14pt}{0}\heiti 摘要}
+
 \usepackage[textwidth=444bp,vmargin=2.5cm]{geometry}%设置页边距
 \usepackage{array} %主要是增加列样式选项
 \usepackage[dvipsnames]{xcolor}%颜色宏包
@@ -59,10 +62,18 @@
 \zhaiyao
 \end{center}
 
-摘要
+本文针对冬季室内房间采暖问题，利用傅里叶传热定律等基本规律建立物理模型，并且采用有限元法，得出了任意时刻下房内任意位置的温度变化模型。在此基础上，使用分级PID自动控制方法，变步长搜索法以及二分法，计算出较优PID参数值，建立了基于历史数据的房屋温度调控模型，最终达到了控制均温在$22.90\degree C$的目标。
+
+针对问题一，我们依据傅里叶传热定律，牛顿冷却定律，以及能量守恒定律，定量分析房屋内暖气片，内外墙，天花板和地面的传热性质。在这一基础上，利用有限元法，将空气作为基本单元进行分析，最终得出基于入水量的室内空气单元的热量传递公式和温度变化公式。在给定初始条件下，从多个角度展现了房屋温度传递过程。
+
+针对问题二，我们调查前人的有关研究，使用分级PID控制方法对供热量进行调控。为了求取PID参数，采用变步长法进行求解，并且对于PID的调节频率做出限制。最终我们的模型在给定温度条件下，调节室内温度的均值为$21.86\degree C$方差为$1.753$，在24小时内，系统总共调节$1454$次供暖水流。
+
+针对问题三，我们利用二分查找法，确定了历史室外温度下的稳定供暖水流大小，对分级PID模型做出修改。修改后的室内温控模型结合了PID控制的灵活性，以及先验知识的稳定性，最终发挥出较原始模型更佳的效果，经过测试，屋内均值与设定值的误差减少到了$0.11\degree C$，方差也比原始模型减小$27\%$。
+
+模型建立在较为严密的物理基础上，温度调节过程经过敏感性测试，对于外界温度变化仍能保持稳定，具有较好的推广性。
 
 \begin{guanjianci}
- 元胞自动机 \quad 边缘检测 \quad 形状匹配
+  有限元法 \quad PID自动控制 \quad 变步长搜索法
 \end{guanjianci}
 
 %----------- 正文 ----------
@@ -94,7 +105,7 @@
 
 \subsection{问题三的分析}
 
-
+就问题三而言，此时温度控制不仅仅可以结合室内的当前状态，还可以就历史的数据进行温度控制调整。因此我们考虑结合问题1中的温度模型，记录每个室外温度下，室内保持23度的维持水流。并结合PID控制模型进行调整，最终得出优化后的温度调整模型。
 %----------- 三、模型假设 ----------
 \section{三、模型假设}
 %使用代码片段：、jiashe%
@@ -119,7 +130,7 @@
     \textbf{原因：}
     虽然室内的窗户处于关闭状态，但是仍有缝隙保持气压平衡。
 
-    \item 忽略暖气片的厚度，将其视作会发热的墙壁区域。
+    \item 分析全屋温度变化时，忽略暖气整体的宽度，认为其与墙壁融为一体。
     
     \textbf{原因：}
     该做法有利于简化问题，利于分析屋内传热情况，且暖气片的厚度和房间进深相比较小，不构成太大影响。
@@ -127,22 +138,9 @@
 \end{enumerate}
 
 %----------- 四、符号说明 ----------
-\section{四、名词解释与符号说明}
-%使用三线表格最好~
-\subsection{名词解释}
-\begin{enumerate}
-    % 名词：、mingci
-    \item \textbf{dada}
-    
-    dsadw
-    
-    \item \textbf{dsadc}
-    
-    dasdsas
+\section{四、符号说明}
 
-    
-\end{enumerate}
-\subsection{符号说明}
+
 以下是本文使用的符号以及含义：
 \begin{table}[h]%htbp表示的意思是latex会尽量满足排在前面的浮动格式，就是h-t-b-p这个顺序，让排版的效果尽量好。
     \centering
@@ -151,12 +149,22 @@
     \hline
     符号 & 说明 & 单位 \\ %换行 
     \hline
-    $L_0$ & 仓库长度 &  $m$\\
+    $t$ & 时间 &  $s$\\
+    $l$ & 暖气中热水长度 &  $m$\\
+    $v$ & 供暖水流速度 &  $m^3/h$\\
+    $S$ & 暖气管横截面积 &  $m^2$\\
+    $T$ & 室内温度 &  $\degree C$\\
+    $T_n$ & 供暖温度 &  $\degree C$\\
+    $T_{out}$ & 室外温度 &  $\degree C$\\
+    $T_{aim}$ & 目标温度 &  $\degree C$\\
+    $q$ & 热流密度 &  $J/(\degree C \cdot m^2 \cdot t)$\\
+    $c$ & 比热容 &  $J/(\degree C \cdot kg)$\\
+    $Q$ & 热量 &  $J$\\
     
     \hline
     \end{tabular}
 \end{table}
-
+\newpage
 %----------- 五、模型的建立与求解 ----------
 \section{五、模型的建立与求解}
 
@@ -171,7 +179,8 @@
 
 \begin {figure}[h]
 \centering % 居中显示
-\includegraphics[width=\textwidth]{nuanqipian.png}
+\includegraphics[width=0.8\textwidth]{nuanqipian.png}
+
 说明：为展示方便，z轴垂直纸面向内，隐去不画。
 \caption{暖气片内部水流示意图} % 标题
 \label{nuanqipian}
@@ -201,13 +210,21 @@ l_0 = \int^{t_0}_{0}\frac{v(t)}{S}dt
     dl = \frac{v(t)*dt}{S}
 \end{equation}
 
-考虑该段微元处的管道导热影响，我们画出其截面图（图\ref{jiemian}），对于该段柱体而言，可以假设管内的温度为$T_1$而管外温度为$T_2$，观察暖气管的物理结构可知，满足长度远远大于其直径，可以看作是等温面共轴。在这一条件下，建立热传导微分方程：
+考虑该段微元处的管道导热影响，我们画出其截面图（图\ref{jiemian}），对于该段柱体而言，可以假设管内的温度为$T_1$而管外温度为$T_2$，观察暖气管的物理结构可知，满足长度远远大于其直径，可以看作是等温面共轴。
+
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.2\textwidth]{zhu.png}
+\caption{水管截面图} % 标题
+\label{five}
+\end {figure}
+在这一条件下，建立热传导微分方程：
 
 \begin{equation}
 \frac{d^{2}T}{dr^{2}} + \frac{1}{r}\frac{dT}{dr}=0
 \end{equation}
 
-使用变量代换法，将上式变形：
+其中$r$为水管半径，使用变量代换法，将上式变形：
 \begin{equation}
 u = \frac{dT}{dr} \Rightarrow  \frac{du}{dr}=\frac{d^2T}{dr^2}
 \label{}
@@ -283,6 +300,12 @@ dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
 \subsubsection{房屋的传热学分析}
 
 对于一间房屋而言，其内部空气的温度受到墙壁种类，开窗的情况，以及天花板与外界的接触情况影响，我们将对这些因素逐一进行分析。
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.5\textwidth]{shinei.png}
+\caption{房屋示意图} % 标题
+\label{shinei}
+\end {figure}
 \begin{enumerate}
     \item 对墙面的分析
     
@@ -297,7 +320,7 @@ dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
 
 \end{enumerate}
 
-综合上述分析，我们对给定的矩形房屋建模，建立直角坐标系，标注其内外墙面的顶点坐标和对应类别，并以坐标形式呈现：
+综合上述分析，如图（\ref{shinei}）所示，我们对给定的矩形房屋建模，建立直角坐标系，标注其内外墙面的顶点坐标和对应类别，并以坐标形式呈现：
 
 \begin{equation}
     \begin{aligned}
@@ -327,7 +350,7 @@ dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
     \label{16}
 \end{equation}
 
-其中$h_1$和$ h_2 $是材料的热交换系数，$ \sigma $是裁量的厚度，$ \lambda $是材料的导热系数，依据这一公式可以求解出每平方米墙面或玻璃传递热量能力的大小。$K$的量纲为$W/m^2\cdot K \cdot s$,含义为单位时间内单位面积在内外相差1$K$（开尔文温度）时,传递热量的多少。利用上式可以推知，墙体（或窗户）和外界温度差为$\Delta T$时，其热流密度为：
+其中$h_1$和$ h_2 $是材料的热交换系数，$ \sigma $是材料的厚度，$ \lambda $是材料的导热系数，依据这一公式可以求解出每平方米墙面或玻璃传递热量能力的大小。$K$的量纲为$W/m^2\cdot K \cdot s$,含义为单位时间内单位面积在内外相差1$K$（开尔文温度）时,传递热量的多少。利用上式可以推知，墙体（或窗户）和外界温度差为$\Delta T$时，其热流密度为：
 \begin{equation}
     q = K * \Delta T
     \label{17}
@@ -335,7 +358,7 @@ dT_n(l,t_0) = T_n(l+dl,t_0+dt) - T_n(l,t_0)
 \subsubsection{室内空气传热模型建立}
 \begin {figure}[h]
 \centering % 居中显示
-\includegraphics[width=0.7\textwidth]{weiyuan.png}
+\includegraphics[width=0.7\textwidth]{sd.png}
 \caption{气体微元示意图} % 标题
 \label{weiyuan}
 \end {figure}
@@ -503,6 +526,58 @@ $ \vec{q} $为热流密度矢量，表示单位时间内沿单位面积的法向
 
 \subsubsection{屋内空气传热模型求解}
 
+我们在前面的工作中建立了屋内空气传热模型。给定初始条件以及边界条件，经过matlab求解后我们得到任意时刻内房屋各处的温度变化结果，展示结果如下：
+\newpage
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.8\textwidth]{3d.png}
+\caption{122s后高度为1.5m处的房屋截面温度分布图} % 标题
+\label{3d}
+\end {figure}
+
+我们在初始室温为$0\degree C$，室外温度为$0\degree C$，水流量为$1 m^3/h$的条件下，经过122s的模拟时间后，得出房屋在高度为1.5m处的截面温度。可见靠近暖气片一端房屋温度已经上升至$25$度以上，房屋北侧的空气此时还未受到传热，温度仍然不变。靠近南北墙壁处的温度皆不高，房屋此时最高温出现在房屋南北中轴靠南一侧，这与实际的情况相符合。
+
+经过500s后，房屋温度整体上升，整体仍然呈现靠近暖气片处温度较高，四周温度低的特点。
+
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.8\textwidth]{3d2.png}
+\caption{500s后高度为1.5m处的房屋截面温度分布图} % 标题
+\label{five}
+\end {figure}
+
+为探究暖气片在竖直方向上的温度影响，绘制x-z方向上的房屋截面图（图\ref{3d2}），观察到其在竖直方向上呈现的温度关系，呈现为半马鞍形，有利于分析后续问题。
+
+\begin{figure}[htbp]
+    \centering  %居中
+    \subfigure[500s后结果]{   %第一张子图
+    \begin{minipage}{0.4\textwidth}%大小总和超过textwidth则自动换行
+    \centering    %子图居中
+    \includegraphics[width=\textwidth]{3d3.png}  %设置图片的输出大小倍数，这里是0.5倍大小输出
+    \end{minipage}
+    }
+    \subfigure[122s后结果]{ %第二张子图
+    \begin{minipage}{0.4\textwidth}
+    \centering    %子图居中
+    \includegraphics[width=\textwidth]{3d4.png}%以pic.jpg的0.5倍大小输出
+    \end{minipage}
+    }
+    \caption{房屋温度在x-z方向上的截面图}    %大图名称
+    \label{3d2}    %图片引用标记
+\end{figure}
+
+\newpage
+为了探究暖气片距离和温度变化的关系，我们观察打开暖气片后1h内距离暖气不同位置的温度变化，等距选取四个采样点，并绘制 图（\ref{3d}）中相同条件下的温度变化曲线（图\ref{slide}）。
+
+
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.9\textwidth]{slide.png}
+\caption{沿南北方向上等距采样的温度变化结果} % 标题
+\label{five}
+\end {figure}
+
+由图片结果可知，由于空气传热的特性，距离暖气不同距离的温度会保持在不同水平，距离暖气较近的空气温升快，且最终到达稳定时温度也较高，距离较远的地方速度则慢，最终也保持在较低的温度。针对这一调节过程延时较大的问题，我们将在下一章节设计自动控温模型，使得在外界温度变化时，内部温度也可以保持恒定。
 \subsection{温度动态控制模型}
 在这一部分，我们建立了室内温度动态调节模型，该模型使用PID调节方式对温度进行实时调节。在PID三个控制参数的确定过程中，建立PID调节模型的评价指标，使用变步长法进行参数搜索，最终得到较优的参数组合，并输出结果。
 \subsubsection{温度控制模型建立}
@@ -519,14 +594,14 @@ PID\cite{6}的基本控制原理为反馈，主要由比例单元(P)，积分单
 
 PID控制器的一般数学表达为：
 \begin{equation}
-    {\mathrm  {u}}(t)={\mathrm  {MV}}(t)=K_{p}{e(t)}+K_{{i}}\int _{{0}}^{{t}}{e(\tau )}\,{d\tau }+K_{{d}}{\frac  {d}{dt}}e(t)
+    {\mathrm  {u}}(t)={\mathrm  {MV}}(t)=K_{p}({e(t)}+K_{{i}}\int _{{0}}^{{t}}{e(\tau )}\,{d\tau }+K_{{d}}{\frac  {d}{dt}}e(t))
 \label{}
 \end{equation}
 
 其中$e$为观测值和预期值之间的误差，在本问题中，该误差$e(t)$定义为当前室内温度和目标温度的差值，而输出被控量$u(t)$对应暖气出水管处的流速，这与式（\ref{12}）中热量变化计算过程相符。由于室内温度的采样具有间隔，因此不能当作连续函数那样进行积分和微分的计算，我们提出离散化的计算方法，给出如下计算公式：
 \begin{equation}
     \begin{aligned}
-        {\mathrm  {v}}(t)= K_{p}{e(t)}+K_{{i}}\int _{{0}}^{{t}}{e(\tau )}\,{d\tau }+K_{{d}}{\frac  {d}{dt}}e(t)\\
+        {\mathrm  {v}}(t)= K_{p}({e(t)}+K_{{i}}\int _{{0}}^{{t}}{e(\tau )}\,{d\tau }+K_{{d}}{\frac  {d}{dt}}e(t))\\
         \begin{cases}
             e(t) = T(x_0,y_0,z_0,t)-T_{aim}\\
             \int _{{0}}^{{t}}{e(\tau )} = \sum_{i=0}^{t} e(i)\\
@@ -538,7 +613,7 @@ PID控制器的一般数学表达为：
 
 其中$T(x_0,y_0,z_0,t),T_{aim}$分别代表室内温度传感器的温度，以及设定的目标温度。依据附件信息传感器设置在东墙1.5m处的位置，设其坐标为$(x_0,y_0,z_0)$，东墙是内墙可以认为温度代表了室内温度。
 
-考虑到题目所给要求，我们需要在尽可能快的时间内将温度调至设定的范围内，因此采用分段控制的思想规定在温度差处于$[-\sigma , \sigma] $之间时才使用pid进行自动控制，而其余情况下将热水伐控制为最大打开或是关闭状态，给出如下计算式：
+考虑到题目所给要求，我们需要在尽可能快的时间内将温度调至设定的范围内，因此采用分级控制的思想规定在温度差处于$[-\sigma , \sigma] $之间时才使用pid进行自动控制，而其余情况下将热水伐控制为最大打开或是关闭状态，给出如下计算式：
 \begin{equation}
 v = \begin{cases}
     v_{max},&T(x_0,y_0,z_0,t)<\eta_{aim}-\sigma_{aim}\\
@@ -554,20 +629,23 @@ v = \begin{cases}
 
 综合前人的经验，我们利用附件中24小时内的温度变化以及5.1中建立的房屋温度控制模型，以实时室外温度作为模型中房屋的外部温度，使用式（\ref{32}）对房屋暖气进水量进行控制。对一组PID参数$[K_p,K_i,K_d]$进行24小时模拟，以温度保持在$ [\eta_{aim}-\sigma_{aim},\eta_{aim}+\sigma_{aim}] $的时间$T_{remain}$作为调节效果的衡量指标。
 
-为了减少单位时间内的参数调节次数，我们规定了单位时间内进行PID调节的次数上限为每分钟一次，这是为了避免连续多次调节，导致步进电机工作异常。
+为了减少单位时间内的参数调节次数，我们规定了单位时间内进行PID调节的频率上限为每分钟一次，这是为了避免连续多次调节，导致步进电机工作异常。
 
 为了确定最优的参数组合，我们使用迭代搜索法确定各个参数，其基本思想为逐步搜索各个参数，逐步缩小搜索范围不断细化，直至满足要求。其流程图如下：
 
 \begin {figure}[h]
 \centering % 居中显示
-\includegraphics[width=0.7\textwidth]{liuc.jpg}
+\includegraphics[width=0.4\textwidth]{liuc.jpg}
 \caption{计算最优$K_p,K_i,K_d$参数的流程} % 标题
 \label{five}
 \end {figure}
 
+\newpage
 \subsubsection{温度控制模型求解}
 
 经过多次测试，我们选取参数组合$k_p = -0.01$，$k_i= 0.001$与$k_d = 0.05$进行24小时模拟，最终获得如下模拟结果：
+
+
 
 \begin {figure}[h]
 \centering % 居中显示
@@ -585,19 +663,104 @@ v = \begin{cases}
 可见在外界温度发生变化时，水流温度会做出调整，以维持室内温度保持一定范围之内，随后迅速恢复到设定的温度内。经过计算，在房屋温度从$0\degree C$开始，一直调控24小时的过程中，室内温度的均值为$21.86\degree C$方差为$1.753$，在24小时内，系统总共调节$1454$次。所得结果能基本完成题目要求，在时间和算力允许的条件下，可以找出更佳的参数组合取得更好效果。
 
 由于该温控模型由室内温度变化来控制水流，没有对于房屋属性以及过去信息的记录，存在部分时间点温度波动过大的行为，我们将在下一小节进行改进。
-\subsection{}
+
+\subsection{基于历史温度数据的温度控制模型}
+
+\subsubsection{改进温度控制模型的建立}
+鉴于上一节中的PID控制模型效果依赖于参数的选择，最终温度控制的过程没有结合先前历史温度等信息进行修正，这导致在温度变化的时刻发生了较多的抖动。为了改善这一现象，我们使用问题一中的空气传热模型，计算出在不同室外温度$T_{out}$条件下室内稳定温度为$23\degree C$时对应的暖水流速，称为维持流速以$V$表示。
+
+为了得到不同室外温度$i$下的流量$V_i$数值，使用二分法进行求解。我们固定室外温度分别为$i\degree C$，选取区间端点为$[v_{min},v_{max}]$，计算端点处的最终室内稳定温度，并不断减半区间，最终得到精度范围内的暖水流速。其计算步骤如下：
+
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=0.8\textwidth]{kt.png}
+\caption{二分查找维持流速流程图} % 标题
+\label{five}
+\end {figure}
+
+随后我们对式（\ref{32}）进行修改，规定在温度差处于$[-\sigma , \sigma] $之间时使用室外温度为$i$条件下的维持流速$V_i$进行自动控制，而其余情况下利用式（\ref{31}）中给出的自动控制模型进行控制。
+
+\begin{equation}
+    v = \begin{cases}
+        v(t),&T(x_0,y_0,z_0,t)<\eta_{aim}-\sigma_{aim}\\
+        V_i,&\eta_{aim}+\sigma_{aim}<T(x_0,y_0,z_0,t)<\eta_{aim}+\sigma_{aim}\\
+        v(t),&\eta_{aim}+\sigma_{aim}<T(x_0,y_0,z_0,t)\\
+    \end{cases}
+    \label{34}
+    \end{equation}
+
+该模型兼顾了PID动态调整的特性与历史温度调控过程，更全面的考虑先验知识。
+\newpage
+\subsubsection{改进温度控制模型的求解}
+
+我们利用二分法求得在不同室外温度下的维持流速$V_i$，如表（\ref{b1}）所示。
+\begin{table}[ht]
+\centering
+\caption{不同室外温度$T_{out}$下对应的维持流速$V_i$}
+\begin{tabular}{cc|cc}
+\toprule
+室外温度$\degree C$ & 维持流速 $m^3/h$ & 室外温度$\degree C$ & 维持流速 $m^3/h$   \\ \midrule
+   -5         &0.2981&4&0.1579 \\
+    -4        &0.2655&5&0.1309 \\
+      -3      &0.2388&6&0.1238 \\
+         -2   &0.2165&7&0.1172 \\
+         -1&0.1985&8&0.1115\\
+         0&0.1829&9&0.1060\\
+
+         2&0.1579&10&0.1012\\
+\bottomrule
+\end{tabular}
+
+\label{b1}
+  \end{table}
+
+随后通过利用该模型进行温度调节仿真，并且与初始调节模型进行比较。结果如下图所示：
+\begin{figure}[htbp]
+    \centering  %居中
+    \subfigure[0-12 h]{   %第一张子图
+    \begin{minipage}{0.8\linewidth}%大小总和超过textwidth则自动换行
+    \centering    %子图居中
+    \includegraphics[width=\textwidth]{g1.jpg}  %设置图片的输出大小倍数，这里是0.5倍大小输出
+    \end{minipage}
+    }
+    \subfigure[12-24h]{ %第二张子图
+    \begin{minipage}{0.8\textwidth}
+    \centering    %子图居中
+    \includegraphics[width=\linewidth]{g2.jpg}%以pic.jpg的0.5倍大小输出
+    \end{minipage}
+    }
+    \caption{修改前后的PID控制结果}    %大图名称
+    \label{fig:1}    %图片引用标记
+\end{figure}
+
+可以直观看出改进算法后温度控制更为稳定，对于温度降低时不易产生较大波动，且在稳定状态时更趋于目标温度。利用改进后的算法控制房间均温为$22.89\degree C$较之于原算法中的$21.8639\degree C$有很大提升，更接近于目标温度$23\degree C$。改进后的方差为$1.280$,较之于改进前的方差减小了$27\%$具有较大提升。可见结合历史数据，有助于更好的调节室内温度，适应外部温度变化。
+
 \section{六、敏感性分析}
+
+我们将附件二中的气温数据整体下调$1\degree C$随后使用改进后的温度控制模型进行敏感性分析，分析模型在原始气温和改变后气温的表现，得到以下结果：
+\begin {figure}[h]
+\centering % 居中显示
+\includegraphics[width=\textwidth]{ming.png}
+\caption{改变温度前后的室内温度控制效果} % 标题   
+\label{five}
+\end {figure}
+
+可见温度降低，模型的控温效果基本没有影响，仍然保持较好的效果。在温度下降一度的情况下，室内平均温度只变化了$0.2\degree C$，具有较好的稳定性。
+
 \section{七、模型的评价}
 
 \subsection{模型的优点}
 \begin{enumerate}
-    \item 采用
+    \item 利用傅里叶传热定律等基本规律建立物理模型，具有较高的可信度。
+    \item 求解房屋温度变化的过程中使用了有限体积元法，将微分方程的计算离散化，提高了计算效率。
+    \item 结合传统PID和先验知识进行温度调节，具有较好的调节效果。
 
 \end{enumerate}
 
 \subsection{模型的缺点}
 \begin{itemize}
-    \item 利用较
+    \item 室内空气流动模型较为复杂，我们并未将其考虑周全，例如的某些复杂的热对流问题。
+    \item 对于PID参数的调节限于时间和算力的要求未能得出满意的结果。
 
 \end{itemize}
 
@@ -617,15 +780,34 @@ v = \begin{cases}
 \renewcommand\labelenumi{\textbf{附录\theenumi}}
 % 规定是附录某某
 \begin{itemize}
-    \item xxx代码
+    \item get\_heater.m 
+    
+    简化热水取暖器模型，输入外部薄层空气的平均温度，得到放热量的分布，取均值作为区域平均传热矢量
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{get_heater.txt}
+    \item get\_bound\_mat.m
+    
+    调用get\_heater.m，求出六个边界面的热流密度矢量分布
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{get_bound_mat.txt}
+    \item main.m
+    
+    解决第二类边界问题的三维 傅里叶散热模型.
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{main.txt}
+
+    \item PID.m
+    
+    标注了PID参数以及函数。
+    \begin{lstlisting}[style=Matlab-editor]
+function u = PID(e,Ie,de)
+kp=-0.01;    
+ki=0.001;
+kd=0;
+u = kp*(e + ki*Ie + kd*de);
+
+function [e,Ie,de] = PID_error(r,T,T_aim)
+e = T(end) - r;
+de = (T_aim(end) - r) - (T_aim(end-1) - r);
+Ie = sum(T) - r*length(T);
+    \end{lstlisting}
 \end{itemize}
-
-\textbf{sobel边缘检测代码}
-
-\begin{lstlisting}[language=matlab]
-    function GAdsa 
-\end{lstlisting}
-
-
 
 \end{document}

@@ -1,0 +1,34 @@
+%求解边界条件，得到边界条件矩阵，共6个 上 前 后 
+%边界空气薄层状态
+%给出 三个面的q值分布矩阵
+%长度微元 统一 0.05
+function [q_top,q_front,q_back] = get_bound_mat(v_water,T0_water,Temp,T_out)
+    %参数
+%     T_out = 0;
+%     T0_water = 60;
+%     v_water = 1;
+    %v_water  水流量 
+    %T0_water 水初始温度
+    %x 长 10m
+    %y 宽 5m
+    %z 高 3m
+    %温度三维矩阵 Temp (x,y,z)
+    %室外温度 T_out
+    dl = 0.05;
+    h_air = 30;         % 空气对流换热系数
+    k_cement = 2.27;    % 水泥的导热系数
+    k_glass = 4.46;     % 玻璃的导热系数
+    X = 10/0.05 + 1;
+    Y = 5/0.05 + 1;
+    Z = 3/0.05 + 1;
+%     Temp = zeros(X,Y,Z);
+    q_top = (h_air+k_cement)*(squeeze(Temp(:,:,end))-ones(X,Y)*T_out); %得到上边界热流密度矢量
+    win_martix = ones(Y,Z);
+    win_martix(1.5/dl+1:3.5/dl+1,1.25/dl+1:2.75/dl+1) = 0;
+    wall_martix = ones(Y,Z) - win_martix;
+    q_front = squeeze((h_air+k_cement)*(Temp(end,:,:)-ones(1,Y,Z)*T_out)).*win_martix + squeeze((h_air+k_glass)*(Temp(end,:,:)-ones(1,Y,Z)*T_out)).*wall_martix;
+    heater = zeros(Y,Z);
+    T_air = mean(Temp(1,1.5/dl+1:3.5/dl+1,0/dl+1:1/dl+1),'all'); %获取对应区域内的空气平均温度 
+    heater(1.5/dl+1:3.5/dl+1,0/dl+1:1/dl+1) = get_heater(T_air,v_water,T0_water);
+    q_back = -q_front + heater;
+end
