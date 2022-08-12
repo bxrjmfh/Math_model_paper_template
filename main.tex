@@ -32,6 +32,11 @@
   {\endMakeFramed}
 %   修正framed环境，使之可以变长，用法：
 %   \begin{framed}[1.2/textwidth]...
+
+\usepackage{hologo}
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-numerical}
+% 采用国标参考文献引用
 \newcommand{\lunwenbiaoti}{\fontsize{15.75pt}{0}\heiti 基于PID自动控制的暖气房屋控温模型}
 \newcommand{\zhaiyao}{\fontsize{14pt}{0}\heiti 摘要}
     
@@ -158,7 +163,6 @@
 
 %----------- 参考文献 ----------
 \newpage
-\bibliographystyle{unsrt} %规定了参考文献的格式
 \begin{center}
 \bibliography{reference} %调出LaTeX生成参考文献列表
 \end{center}
