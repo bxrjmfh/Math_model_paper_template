@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  12 AUG 2022 17:02
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  15 AUG 2022 21:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -907,7 +907,11 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (c:/texlive/2021/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)) (./main.aux)
+)) (./main.aux
+
+LaTeX Warning: Label `label' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 43.
@@ -1019,55 +1023,118 @@ Package fontspec Info: Font family 'FandolHei-Regular(0)' created for font
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 80.
-LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 134.
+(Font)              scaled to size 10.53937pt on input line 88.
+LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 90.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 134.
+(Font)              scaled to size 10.53937pt on input line 90.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 134.
+(Font)              scaled to size 7.0pt on input line 90.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 134.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 134.
+(Font)              scaled to size 5.0pt on input line 90.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 90.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 134.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 90.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 134.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 90.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 134.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 90.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 134.
+(Font)              scaled to size 10.53937pt on input line 90.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 134.
+(Font)              scaled to size 7.0pt on input line 90.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 134.
+(Font)              scaled to size 5.0pt on input line 90.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 90.
+ [2]
 
+LaTeX Warning: Reference `p1' on page 3 undefined on input line 157.
+
+[3]
+File: zhibiao.png Graphic file (type bmp)
+<zhibiao.png>
+ [4]
+Overfull \hbox (14.36179pt too wide) in paragraph at lines 177--178
+[]\TU/FandolSong-Regular(0)/m/n/10.53937 用 户 的 某 一 监 控 指 标 $\OML/ntxmi/m/it/10.53937 D[]; \LMS/ntxsy/m/n/10.53937 ¹\OML/ntxmi/m/it/10.53937 i \LMS/ntxsy/m/n/10.53937 2 f\OT1/ntxtlf/m/n/10.53937 1\OML/ntxmi/m/it/10.53937 ; \OT1/ntxtlf/m/n/10.53937 2\OML/ntxmi/m/it/10.53937 ; \OT1/ntxtlf/m/n/10.53937 3\LMS/ntxsy/m/n/10.53937 gº$ \TU/FandolSong-Regular(0)/m/n/10.53937 按 照 一 定 的 采 样 率 进 行 记 录，|  我 们 若 使 用 $\LMS/ntxsy/m/n/10.53937 f\OML/ntxmi/m/it/10.53937 t[]; t[]; t[]; []  ; t[]\LMS/ntxsy/m/n/10.53937 g$
+ []
+
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.53937pt on input line 180.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 7.0pt on input line 180.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 5.0pt on input line 180.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.53937pt on input line 180.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/b/n' will be
+(Font)              scaled to size 7.0pt on input line 180.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/b/n' will be
+(Font)              scaled to size 5.0pt on input line 180.
+File: jiyuan.png Graphic file (type bmp)
+<jiyuan.png>
+File: jiyuanz.png Graphic file (type bmp)
+<jiyuanz.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2] [3]
-No file main.bbl.
-[4] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [5] (./main.aux) ) 
-Here is how much of TeX's memory you used:
- 16534 strings out of 476919
- 322254 string characters out of 5825425
- 875009 words of memory out of 5000000
- 36186 multiletter control sequences out of 15000+600000
- 424471 words of font info for 75 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 101i,12n,104p,478b,1530s stack positions out of 5000i,500n,10000p,200000b,80000s
+[5]
+File: slide.png Graphic file (type bmp)
+<slide.png>
+ [6]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 242.
+File: 111.png Graphic file (type bmp)
+<111.png>
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.52812pt on input line 287.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.52812pt on input line 287.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.52812pt on input line 287.
+File: 113.png Graphic file (type bmp)
+<113.png>
+ [7] [8]
 
-Output written on main.pdf (5 pages).
+LaTeX Warning: Reference `k' on page 9 undefined on input line 340.
+
+
+Overfull \hbox (10.17961pt too wide) in paragraph at lines 346--347
+[]\TU/FandolSong-Regular(0)/m/n/10.53937 在 某 一 类 中 使 用 熵 权 法，|  我 们 记 录 第 $\OML/ntxmi/m/it/10.53937 i$ \TU/FandolSong-Regular(0)/m/n/10.53937 个 用 户 属 于 该 类 的 指 标 $\OML/ntxmi/m/it/10.53937 a[]; \LMS/ntxsy/m/n/10.53937 ¹\OML/ntxmi/m/it/10.53937 i \U/ntxmia/m/it/10.53937 = \OT1/ntxtlf/m/n/10.53937 1\OML/ntxmi/m/it/10.53937 ; \OT1/ntxtlf/m/n/10.53937 2\OML/ntxmi/m/it/10.53937 ; []  ; m\OT1/ntxtlf/m/n/10.53937 ; \OML/ntxmi/m/it/10.53937 j \U/ntxmia/m/it/10.53937 = \OT1/ntxtlf/m/n/10.53937 1\OML/ntxmi/m/it/10.53937 ; \OT1/ntxtlf/m/n/10.53937 2\OML/ntxmi/m/it/10.53937 ; []  ; n\LMS/ntxsy/m/n/10.53937 º$\T1/ntxtlf/m/n/10.53937 ,
+ []
+
+[9]
+File: zhibiao2.jpg Graphic file (type bmp)
+<zhibiao2.jpg>
+ [10] [11] [12] (./main.bbl
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 39.
+) [13] [14] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 16213 strings out of 476919
+ 326529 string characters out of 5825425
+ 697097 words of memory out of 5000000
+ 35840 multiletter control sequences out of 15000+600000
+ 452518 words of font info for 118 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 101i,12n,104p,478b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.pdf (14 pages).

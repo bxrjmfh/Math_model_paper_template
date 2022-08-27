@@ -1,0 +1,64 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[{中国信通院([2022])}]{1}
+中国信通院.
+\newblock
+  中国信通院-科研能力-权威发布-云计算发展白皮书（2020
+  年）[EB/OL].
+\newblock \allowbreak[2022-08-12].
+\newblock
+  \url{http://www.caict.ac.cn/kxyj/qwfb/bps/202007/t20200729_287361.htm}.
+
+\bibitem[殷之平\ 等(2016)殷之平, 刘飞, and 黄其青]{2}
+殷之平, 刘飞, 黄其青.
+\newblock 飞机机动划分的数据挖掘方法[J/OL].
+\newblock 西北工业大学学报, 34\allowbreak (1):
+  33-40\allowbreak[2022-06-28].
+\newblock
+  \url{https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2016&filename=XBGD201601006&uniplatform=NZKPT&v=Wj-On_0Ycs0jXKZTWs_Fco6zZnyRYoZEygAYmN_W3uPkmqX4IVCrnerYAIAg0oXC}.
+
+\bibitem[3(2022)]{3}
+皮爾森卡方檢定[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2022\allowbreak[2022-08-14].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=%E7%9A%AE%E7%88%BE%E6%A3%AE%E5%8D%A1%E6%96%B9%E6%AA%A2%E5%AE%9A&oldid=69739661}.
+
+\bibitem[6(2021)]{6}
+\textit{k}-平均演算法[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2021\allowbreak[2022-08-15].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=K-%E5%B9%B3%E5%9D%87%E7%AE%97%E6%B3%95&oldid=68874900}.
+
+\bibitem[{7([2022])}]{7}
+(7)Calinski-Harabasz criterion clustering evaluation object - {MATLAB} -
+  {MathWorks} 中国[EB/OL].
+\newblock \allowbreak[2022-08-15].
+\newblock
+  \url{https://ww2.mathworks.cn/help/stats/clustering.evaluation.calinskiharabaszevaluation.html?requestedDomain=cn}.
+
+\bibitem[4(2022)]{4}
+層級分析法[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2022\allowbreak[2022-08-15].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=%E5%B1%A4%E7%B4%9A%E5%88%86%E6%9E%90%E6%B3%95&oldid=73182724}.
+
+\bibitem[{5([2022])}]{5}
+熵值法 - {MBA智库百科}[EB/OL].
+\newblock \allowbreak[2022-08-15].
+\newblock \url{https://wiki.mbalib.com/wiki/%E7%86%B5%E5%80%BC%E6%B3%95}.
+
+\end{thebibliography}
