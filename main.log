@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  28 AUG 2022 19:40
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  28 AUG 2022 19:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1039,4 +1039,82 @@ LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 1
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 15
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 150.
+ (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsyc.fd
+File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
+)
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 150.
+ (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
+)
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 150.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 150.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 150.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 187.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 7.0pt on input line 187.
+
+
+Package natbib Warning: Citation `2' on page 4 undefined on input line 187.
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 190.
+[4] [5]
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 273.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/it' will be
+(Font)              scaled to size 7.0pt on input line 273.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/it' will be
+(Font)              scaled to size 5.0pt on input line 273.
+File: 511.png Graphic file (type bmp)
+<511.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] [7] [8]
+File: 513.png Graphic file (type bmp)
+<513.png>
+ [9]
+File: 521.png Graphic file (type bmp)
+<521.png>
+ [10] [11]
+
+Package natbib Warning: Citation `7' on page 12 undefined on input line 445.
+
+
+Overfull \hbox (12.70975pt too wide) in paragraph at lines 457--480
+ [][] 
+ []
+
+[12] [13] [14] [15] (./main.bbl
+Missing character: There is no 利 ("5229) in font ntx-Regular-tlf-t1!
+Missing character: There is no 潤 ("6F64) in font ntx-Regular-tlf-t1!
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.53937pt on input line 44.
+) [16] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+
+Package natbib Warning: There were undefined citations.
+
+[17] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 16746 strings out of 476919
+ 332783 string characters out of 5825425
+ 894215 words of memory out of 5000000
+ 36387 multiletter control sequences out of 15000+600000
+ 437923 words of font info for 84 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 101i,15n,104p,478b,1526s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.pdf (17 pages).
