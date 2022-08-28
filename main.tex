@@ -566,15 +566,36 @@ $$\begin{cases}
 \renewcommand\labelenumi{\textbf{附录\theenumi}}
 % 规定是附录某某
 \begin{itemize}
-    \item xxx代码
+    \item 主函数
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{get_data.m}
+    
+    \item 数据预处理代码
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{data_pro.m}
+
+
+    \item 多元线性回归相关代码，各变量处理
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{x1.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{x2.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{x3.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{x4.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{x5.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{y.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{yy.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{Regress.m}
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{trainClassifier.m}
+    
+    \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{class1.m}
+
+    
 \end{itemize}
 
-\textbf{sobel边缘检测代码}
 
-\begin{lstlisting}[language=matlab]
-    function GAdsa 
-\end{lstlisting}
-
+% matlab代码样式，使用方法为：
+% \lstinputlisting[style=Matlab-editor,linewidth=\textwidth]{code.m}
+% 或：
+% \begin{lstlisting}[style=matlab-prettifier]
+%     %code
+% \end{lstlisting}
 
 
 \end{document}
