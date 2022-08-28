@@ -1,0 +1,68 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[1(2022)]{1}
+利润[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2022\allowbreak[2022-08-27].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=利潤&oldid=72812261}.
+
+\bibitem[3(2021)]{3}
+信用评级[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2021\allowbreak[2022-08-27].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=%E4%BF%A1%E7%94%A8%E8%AF%84%E7%BA%A7&oldid=64636182}.
+
+\bibitem[楚泽昊(2020)]{4}
+楚泽昊.
+\newblock 基于税务信息的中小企业信用评价体系研究[EB/OL].
+\newblock 河南财经政法大学\allowbreak(2020)\allowbreak[2022-08-26].
+\newblock
+  \url{http://kns-cnki-net-s.vpn.uestc.edu.cn:8118/kcms/detail/detail.aspx?dbcode=CMFD&dbname=CMFD202002&filename=1020625957.nh&uniplatform=NZKPT&v=bneTNuR0p-f2nePl-N5teHl5IpnrziB_HGComTgr7cp8v2P90Gw2aFsVoDYHNG3E}.
+\newblock DOI: \doi{10.27113/d.cnki.ghncc.2020.000188}.
+
+\bibitem[5(2022)]{5}
+General linear model[M/OL]//\allowbreak
+Wikipedia.
+\newblock 2022\allowbreak[2022-08-27].
+\newblock
+  \url{https://en.wikipedia.org/w/index.php?title=General_linear_model&oldid=1102725280}.
+
+\bibitem[6(2022)]{6}
+\textit{k}-nearest neighbors algorithm[M/OL]//\allowbreak
+Wikipedia.
+\newblock 2022\allowbreak[2022-08-28].
+\newblock
+  \url{https://en.wikipedia.org/w/index.php?title=K-nearest_neighbors_algorithm&oldid=1091525121}.
+
+\bibitem[赵汉伟\ 等(2020)赵汉伟, 朱津锐, and 胡晓忠]{8}
+赵汉伟, 朱津锐, 胡晓忠.
+\newblock
+  新冠肺炎疫情对于中小企业的影响程度研究——基于财务报告分析基础上[J/OL].
+\newblock 齐鲁珠坛\allowbreak (4): 9-12\allowbreak[2022-08-28].
+\newblock
+  \url{http://kns-cnki-net-s.vpn.uestc.edu.cn:8118/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2020&filename=QLZT202004004&uniplatform=NZKPT&v=ei8Yx5lrDSx_DeGzwvIQL3R-PDcdrjaxYlcla7v0KMLwwgOqRE8ywqR2eVAfv1Xd}.
+
+\bibitem[赵楷文\ 等(2021)赵楷文, 周呈妍, 钱艺萱, 胡雯颖, and
+  杨涛]{9}
+赵楷文, 周呈妍, 钱艺萱, 等.
+\newblock
+  新冠疫情对服务行业的影响研究——以南京市为例[J/OL].
+\newblock 现代商业\allowbreak (34): 27-30\allowbreak[2022-08-28].
+\newblock
+  \url{http://kns-cnki-net-s.vpn.uestc.edu.cn:8118/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2022&filename=XDBY202134008&uniplatform=NZKPT&v=mxUAR9zyeekPYhcAdngiYX5XdeoIsqH7mqhc8FXoMZTtf3EROuLrRhJDffq1kjL8}.
+\newblock DOI: \doi{10.14097/j.cnki.5392/2021.34.008}.
+
+\end{thebibliography}
