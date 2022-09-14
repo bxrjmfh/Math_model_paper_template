@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  14 SEP 2022 14:55
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  14 SEP 2022 14:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -907,13 +907,12 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (c:/texlive/2021/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-))
-No file main.aux.
+)) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 43.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 43.
-(c:/texlive/2021/texmf-dist/tex/latex/newtx/omlntxmi.fd
+ (c:/texlive/2021/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
 LaTeX Font Info:    ... okay on input line 43.
@@ -1059,24 +1058,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [2] [3]
 No file main.bbl.
-[4]
-
-./main.tex:180: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.180 \end{itemize}
-                   
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[5] (./main.aux) ) 
+[4] [5] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 15942 strings out of 476919
- 315492 string characters out of 5825425
- 680786 words of memory out of 5000000
+ 15944 strings out of 476919
+ 315510 string characters out of 5825425
+ 680780 words of memory out of 5000000
  35600 multiletter control sequences out of 15000+600000
  424471 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
