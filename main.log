@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  10 SEP 2022 22:09
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  11 SEP 2022 19:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -907,7 +907,11 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (c:/texlive/2021/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)) (./main.aux)
+)) (./main.aux
+
+LaTeX Warning: Label `label' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 43.
@@ -1019,92 +1023,143 @@ Package fontspec Info: Font family 'FandolHei-Regular(0)' created for font
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 80.
+(Font)              scaled to size 10.53937pt on input line 89.
  [2]
-LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 140.
+LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 148.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 140.
+(Font)              scaled to size 10.53937pt on input line 148.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 140.
+(Font)              scaled to size 7.0pt on input line 148.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 140.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 140.
+(Font)              scaled to size 5.0pt on input line 148.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 148.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 140.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 148.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 140.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 148.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 140.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 148.
  (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 140.
+(Font)              scaled to size 10.53937pt on input line 148.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 140.
+(Font)              scaled to size 7.0pt on input line 148.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 140.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 164.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 7.0pt on input line 164.
+(Font)              scaled to size 5.0pt on input line 148.
 
 
-Package natbib Warning: Citation `1' on page 3 undefined on input line 164.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 187.
+ [4]
 File: 11005.png Graphic file (type bmp)
 <11005.png>
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.52812pt on input line 201.
+(Font)              scaled to size 7.52812pt on input line 224.
 
-Overfull \hbox (5.26968pt too wide) in paragraph at lines 201--201
+Overfull \hbox (5.26968pt too wide) in paragraph at lines 224--224
  [][] 
  []
 
 File: 11007.png Graphic file (type bmp)
 <11007.png>
 
-Overfull \hbox (5.26968pt too wide) in paragraph at lines 207--209
+Overfull \hbox (5.26968pt too wide) in paragraph at lines 230--232
  [][] 
  []
 
-[4] [5]
-
-Package natbib Warning: Citation `1' on page 6 undefined on input line 254.
-
-[6]
-
-Package natbib Warning: Citation `2' on page 7 undefined on input line 288.
+[5] [6] [7] [8]
+File: Graph1.jpg Graphic file (type bmp)
+<Graph1.jpg>
 
 
-Package natbib Warning: Citation `3' on page 7 undefined on input line 288.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7]
-No file main.bbl.
-[8] (c:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
+[9]
+File: bingtu.png Graphic file (type bmp)
+<bingtu.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10] [11] [12]
+File: zhouqi.png Graphic file (type bmp)
+<zhouqi.png>
+File: zhouqi2.png Graphic file (type bmp)
+<zhouqi2.png>
+ [13] [14]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 528.
+ [15] [16] [17] (./main.bbl) [18]
+
+Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
+(fontspec)                Script "CJK".
+
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 648.
+(c:/texlive/2021/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
 )
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 648.
 
-Package natbib Warning: There were undefined citations.
+Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
+(fontspec)             'FandolFang-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-[9] (./main.aux) ) 
+ (./get50.m
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 1.
+ (c:/texlive/2021/texmf-dist/tex/latex/txfonts/t1txtt.fd
+File: t1txtt.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/b/n' in size <10.53937> not available
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 1.
+
+
+LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/b/n' undefined
+(Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 1.
+
+[19]
+LaTeX Font Info:    Trying to load font information for TS1+ntxtt on input line 54.
+ (c:/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtt.fd
+File: ts1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `TS1/ntxtt/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 54.
+) (./L.m) (./B.m [20]) (./C.m) (./D.m) (./a1.m [21]) (./a2.m [22]) (./a3.m) (./a4.m) (./a5.m [23]) (./PIC.m) (./PIE.m) [24] (./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 16642 strings out of 476919
- 328485 string characters out of 5825425
- 889891 words of memory out of 5000000
- 36290 multiletter control sequences out of 15000+600000
- 432880 words of font info for 78 fonts, out of 8000000 for 9000
+ 16464 strings out of 476919
+ 328175 string characters out of 5825425
+ 903779 words of memory out of 5000000
+ 36052 multiletter control sequences out of 15000+600000
+ 433890 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,12n,104p,478b,1530s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,12n,120p,478b,2067s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (9 pages).
+Output written on main.pdf (24 pages).

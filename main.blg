@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: gbt7714-numerical.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: reference.bib
+Warning--entry type for "2" isn't style-file defined
+--line 14 of file reference.bib
+Warning--entry type for "3" isn't style-file defined
+--line 29 of file reference.bib
+Warning--empty author in 2
+Warning--empty author in 3
+You've used 3 entries,
+            5246 wiz_defined-function locations,
+            1025 strings with 8023 characters,
+and the built_in function-call counts, 9446 in all, are:
+= -- 366
+> -- 708
+< -- 1272
++ -- 503
+- -- 116
+* -- 79
+:= -- 1381
+add.period$ -- 10
+call.type$ -- 3
+change.case$ -- 4
+chr.to.int$ -- 444
+cite$ -- 7
+duplicate$ -- 75
+empty$ -- 214
+format.name$ -- 12
+if$ -- 2485
+int.to.chr$ -- 1
+int.to.str$ -- 4
+missing$ -- 0
+newline$ -- 32
+num.names$ -- 3
+pop$ -- 156
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 828
+stack$ -- 0
+substring$ -- 608
+swap$ -- 3
+text.length$ -- 20
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 29
+warning$ -- 2
+while$ -- 23
+width$ -- 0
+write$ -- 54
+(There were 4 warnings)

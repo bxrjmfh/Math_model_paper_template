@@ -1,0 +1,35 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[{（美）唐纳德J.鲍尔索克斯，戴维J.克劳斯，M.比克斯比.库珀编}(2010)]{1}
+{（美）唐纳德J.鲍尔索克斯，戴维J.克劳斯，M.比克斯比.库珀编}.
+\newblock 供应链物流管理 原书第3版[M/OL].
+\newblock 机械工业出版社, 2010\allowbreak[2022-09-10].
+\newblock
+  \url{http://book.ucdrs.superlib.net/views/specific/2929/bookDetail.jsp?dxNumber=000006817531&d=312FF8FC051CC45D4A9329C1244C99F4&fenlei=06030703}.
+
+\bibitem[2(2022)]{2}
+层次分析法[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2022\allowbreak[2022-09-10].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=%E5%B1%A4%E7%B4%9A%E5%88%86%E6%9E%90%E6%B3%95&oldid=73182724}.
+
+\bibitem[3(2022)]{3}
+Entropy[M/OL]//\allowbreak
+Wikipedia.
+\newblock 2022\allowbreak[2022-09-10].
+\newblock
+  \url{https://en.wikipedia.org/w/index.php?title=Entropy&oldid=1109401529}.
+
+\end{thebibliography}
