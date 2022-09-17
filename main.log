@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  17 SEP 2022 00:17
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.4.9)  17 SEP 2022 21:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1088,22 +1088,98 @@ Package natbib Warning: Citation `2' on page 4 undefined on input line 202.
 
 [4]
 
-Package natbib Warning: Citation `4' on page 5 undefined on input line 244.
+Package natbib Warning: Citation `4' on page 5 undefined on input line 243.
 
-[5] [6]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 248.
+[5]
+
+Package natbib Warning: Citation `5' on page 6 undefined on input line 251.
+
+File: crolx.png Graphic file (type bmp)
+<crolx.png>
+File: crows.png Graphic file (type bmp)
+<crows.png>
+File: croys.png Graphic file (type bmp)
+<croys.png>
+[6]
+
+Package natbib Warning: Citation `6' on page 7 undefined on input line 299.
+
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+
+Overfull \hbox (3.39334pt too wide) in paragraph at lines 310--331
+ [][] 
+ []
+
+[7] [8]
+File: kqu.png Graphic file (type bmp)
+<kqu.png>
+File: bqu.png Graphic file (type bmp)
+<bqu.png>
+ [9] [10]
+Overfull \hbox (29.31761pt too wide) in paragraph at lines 426--440
+ [][] 
+ []
+
+[11]
 No file main.bbl.
-[7]
+[12]
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+
+Overfull \hbox (3.39334pt too wide) in paragraph at lines 479--500
+ [][] 
+ []
+
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+
+Overfull \hbox (3.39334pt too wide) in paragraph at lines 508--528
+ [][] 
+ []
+
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+
+Overfull \hbox (3.39334pt too wide) in paragraph at lines 536--557
+ [][] 
+ []
+
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+Missing character: There is no  ("E618) in font ntx-Regular-tlf-t1!
+
+Overfull \hbox (3.39334pt too wide) in paragraph at lines 565--586
+ [][] 
+ []
+
 
 Package natbib Warning: There were undefined citations.
 
-[8] (./main.aux) ) 
+[13] [14] [15] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 16061 strings out of 476919
- 321941 string characters out of 5825425
- 692828 words of memory out of 5000000
- 35710 multiletter control sequences out of 15000+600000
- 432888 words of font info for 79 fonts, out of 8000000 for 9000
+ 16130 strings out of 476919
+ 324012 string characters out of 5825425
+ 709953 words of memory out of 5000000
+ 35772 multiletter control sequences out of 15000+600000
+ 435709 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,17n,104p,478b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (8 pages).
+Output written on main.pdf (15 pages).
