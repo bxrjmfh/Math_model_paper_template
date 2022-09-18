@@ -439,10 +439,10 @@ $D_{B0}$             &  -0.7796 &-0.2834 &-0.3896 &-0.1929\\
 \label{bianhua}
   \end{table}
 
-依据化学成分的变化趋势，可以对风化前的化学成分进行预测，通过式（\ref{cijk}）计算出原有化学成分的数据，摘录五条高钾玻璃和铅钡玻璃预测结果展示于表（\ref{jieguo1}），其余部分在附录中（表\ref{jieguo2}）给出。
+依据化学成分的变化趋势，可以对风化前的化学成分进行预测，通过式（\ref{cijk}）计算出原有化学成分的数据，摘录五条高钾玻璃和铅钡玻璃预测结果展示于表（\ref{jieguo1}），其余部分在附录中（表\ref{jieguo2}）给出。编号后的字母代表样本种类，K代表高钾玻璃，B代表铅钡玻璃。
 
 \begin{longtable}{c|ccccc}
-  \caption{预测风化前的化学成分结果}
+  \caption{预测风化前的化学成分结果（单位：$\%$）}
   \label{jieguo1}\\\toprule
   化学成分                 & \multicolumn{1}{c}{\textbf{二氧化硅(SiO2)}}  & \multicolumn{1}{c}{\textbf{氧化钠(Na2O)}}  & \multicolumn{1}{c}{\textbf{氧化钾(K2O)}}  & \multicolumn{1}{c}{\textbf{氧化钙(CaO)}}  & \multicolumn{1}{c}{\textbf{氧化镁(MgO)}} \\\midrule
   2(B)  & 64.004 & 0.000 & 1.297  & 1.090  & 0.950  \\
@@ -464,7 +464,44 @@ $D_{B0}$             &  -0.7796 &-0.2834 &-0.3896 &-0.1929\\
 9(K)  & 1.830  & 0.044 & 0.206  & 0.106  &        \\\bottomrule
 \end{longtable}
 
-得到预测结果后需要对
+得到预测结果后需要对结果进行合理性分析，在机器学习等领域常见的方法是划分训练集与测试集，在训练集上获得较好效果后在测试集上验证所得结果的正确性。但是由于古代玻璃样品的特殊性，每件样品的制作工艺不同，导致成分具有差异，流失情况也各有不同，因此不能随意搭配预测的数据同原始未风化的数据验证正确性。
+
+在这一前提条件下，我们提出一种检验相关性的方法，将附件二中原始未风化的化学成分记录$r$与预测出的数据中的化学成分记录$ r' $相混合，得到未风化数据集合$ R $。并且使用“是否预测”这一0-1标签$f$分别标注数据来源为$ r $或是$ r' $。通过探究各个化学成分占比同数据来源的相关性，判断该预测模型的性能。
+
+使用相关性分析的理论依据在于：若相关各个化学成分的占比$c_j$这一指标不能够揭示数据是否被预测而来，那么就相当于是该预测数据“隐藏”在原始数据中，同是否预测之间没有显著的相关关系。这样可以推知预测出数据同原始数据之间的差异不大，认为预测有效。若所有指标均同“是否预测”之间没有显著性关联，那么就可以认为预测效果较好。
+
+经过权衡，使用皮尔逊相关系数\cite{7}来检测$R$中各化学成分占比$ c_j $与是否预测指标$ f $之间的相关性进行分析，利用SPSSAU求解器\cite{5}求解，最终得到以下结果：
+
+\begin{figure}[htbp]
+    \centering  %居中
+    \subfigure[铅钡玻璃]{   %第一张子图
+    \begin{minipage}{0.4\textwidth}%大小总和超过textwidth则自动换行
+    \centering    %子图居中
+    \includegraphics[width=\textwidth]{Bpearson.png}  %设置图片的输出大小倍数，这里是0.5倍大小输出
+    \end{minipage}
+    }
+    \subfigure[高钾玻璃]{ %第二张子图
+    \begin{minipage}{0.4\textwidth}
+    \centering    %子图居中
+    \includegraphics[width=\textwidth]{kpearson.png}%以pic.jpg的0.5倍大小输出
+    \end{minipage}
+    }
+    
+
+    \caption{不同种类玻璃成分同预测之间的相关系数结果}    %大图名称
+    \label{pear}    %图片引用标记
+\end{figure}
+可知各化学成分占比同是否预测之间相关系数值$ p $均大于0.05说明没有相关性，也就验证了我们的预测方法是行之有效的。
+
+\subsection{古代玻璃类型及亚类划分模型}
+在本部分我们需要解决古代玻璃的类型划分问题，即给出铅钡玻璃和高钾玻璃之间的分类关系；在这一基础上，要对两种玻璃进一步划更细的亚类，并做敏感性分析，解释其合理性。针对大类划分模型，利用问题1种得到预测风化前的样本数据，统计高钾玻璃与铅钡玻璃间各个化学元素的分界点，以投票方式决定一个样本的种类。
+
+针对亚类划分问题，使用相关文献的知识以及变异系数，挑选重要指标，使用kmeans++聚类方法，利用相关系数确定最佳类中心数目。在得出聚类结果后，\textcolor{red}{具体方法}进行敏感度分析。
+
+\subsubsection{古代玻璃大类划分模型}
+古代玻璃的类型不同，是由于其在制造过程种添加了不同的助熔剂，导致其化学成分有所差异，这是我们进行分类的依据所在。考虑到样本风化后带来相关元素的流失，可能会带来误判，因此利用风化后的数据条目预测其风化前的化学成分比例，利用预测结果进行分类。
+
+我们根据指标$c_{ij}$的与划分界限$h_j$相对大小，判断玻璃在这一指标上倾向于哪一类$v_j$。
 \section{六、敏感性分析}
 \section{七、模型的评价}
 
@@ -614,25 +651,30 @@ $D_{B0}$             &  -0.7796 &-0.2834 &-0.3896 &-0.1929\\
           \end{table}
 
     \end{itemize}
-   
-    \begin{longtable}{cccccc}
-      \caption{$\chi^2$-Test of UDP Packet Size Sample Measurements}
-      \label{Table1}\\
-      化学成分                 & \multicolumn{1}{c}{\textbf{二氧化硅(SiO2)}}  & \multicolumn{1}{c}{\textbf{氧化钠(Na2O)}}  & \multicolumn{1}{c}{\textbf{氧化钾(K2O)}}  & \multicolumn{1}{c}{\textbf{氧化钙(CaO)}}  & \multicolumn{1}{c}{\textbf{氧化镁(MgO)}} \\\midrule
-$D_{K0}$             &  -0.2765 & Inf      &16.1842 &5.1287 &4.4772\\ 
-$D_{B0}$             &  1.0203 &5.8980 &0.6466 &-0.5247 &-0.0684\\\midrule
-化学成分                 & \multicolumn{1}{c}{\textbf{氧化铝(Al2O3)}}  & \multicolumn{1}{c}{\textbf{氧化铁(Fe2O3)}} & \multicolumn{1}{c}{\textbf{氧化铜(CuO)}}  & \multicolumn{1}{c}{\textbf{氧化铅(PbO)}}  & \multicolumn{1}{c}{\textbf{氧化钡(BaO)}} \\\midrule
-$D_{K0}$             & 2.4301 &6.2906  &0.5704   &Inf        &Inf \\
-$D_{B0}$             &  0.4379 &0.1150 & -0.3552 &-0.4947 &-0.1406 \\\midrule
-化学成分                 & \multicolumn{1}{c}{\textbf{五氧化二磷(P2O5)}} & \multicolumn{1}{c}{\textbf{氧化锶(SrO)}}   & \multicolumn{1}{c}{\textbf{氧化锡(SnO2)}} & \multicolumn{1}{c}{\textbf{二氧化硫(SO2)}} &                                       \\\midrule
-$D_{K0}$             & 4.0071 &Inf         &Inf         &Inf \\
-$D_{B0}$             &  -0.7796 &-0.2834 &-0.3896 &-0.1929\\
-  \end{longtable}    
     \newpage
+    \,
+    \newpage
+    \item 铅钡玻璃和高钾玻璃风化前化学成分含量预测结果
+    
+    注：序号后字母代表样本种类，K代表高钾玻璃，B代表铅钡玻璃。
+%     \begin{longtable}{cccccc}
+%       \caption{$\chi^2$-Test of UDP Packet Size Sample Measurements}
+%       \label{Table1}\\
+%       化学成分                 & \multicolumn{1}{c}{\textbf{二氧化硅(SiO2)}}  & \multicolumn{1}{c}{\textbf{氧化钠(Na2O)}}  & \multicolumn{1}{c}{\textbf{氧化钾(K2O)}}  & \multicolumn{1}{c}{\textbf{氧化钙(CaO)}}  & \multicolumn{1}{c}{\textbf{氧化镁(MgO)}} \\\midrule
+% $D_{K0}$             &  -0.2765 & Inf      &16.1842 &5.1287 &4.4772\\ 
+% $D_{B0}$             &  1.0203 &5.8980 &0.6466 &-0.5247 &-0.0684\\\midrule
+% 化学成分                 & \multicolumn{1}{c}{\textbf{氧化铝(Al2O3)}}  & \multicolumn{1}{c}{\textbf{氧化铁(Fe2O3)}} & \multicolumn{1}{c}{\textbf{氧化铜(CuO)}}  & \multicolumn{1}{c}{\textbf{氧化铅(PbO)}}  & \multicolumn{1}{c}{\textbf{氧化钡(BaO)}} \\\midrule
+% $D_{K0}$             & 2.4301 &6.2906  &0.5704   &Inf        &Inf \\
+% $D_{B0}$             &  0.4379 &0.1150 & -0.3552 &-0.4947 &-0.1406 \\\midrule
+% 化学成分                 & \multicolumn{1}{c}{\textbf{五氧化二磷(P2O5)}} & \multicolumn{1}{c}{\textbf{氧化锶(SrO)}}   & \multicolumn{1}{c}{\textbf{氧化锡(SnO2)}} & \multicolumn{1}{c}{\textbf{二氧化硫(SO2)}} &                                       \\\midrule
+% $D_{K0}$             & 4.0071 &Inf         &Inf         &Inf \\
+% $D_{B0}$             &  -0.7796 &-0.2834 &-0.3896 &-0.1929\\
+%   \end{longtable}    
+    
   \begin{longtable}{c|ccccc}
     \caption{预测风化前的化学成分结果（全表）}
     \label{jieguo2}\\\toprule
-    化学成分                 & \multicolumn{1}{c}{\textbf{二氧化硅(SiO2)}}  & \multicolumn{1}{c}{\textbf{氧化钠(Na2O)}}  & \multicolumn{1}{c}{\textbf{氧化钾(K2O)}}  & \multicolumn{1}{c}{\textbf{氧化钙(CaO)}}  & \multicolumn{1}{c}{\textbf{氧化镁(MgO)}} \\\midrule
+    样本序号                 & \multicolumn{1}{c}{\textbf{二氧化硅(SiO2)}}  & \multicolumn{1}{c}{\textbf{氧化钠(Na2O)}}  & \multicolumn{1}{c}{\textbf{氧化钾(K2O)}}  & \multicolumn{1}{c}{\textbf{氧化钙(CaO)}}  & \multicolumn{1}{c}{\textbf{氧化镁(MgO)}} \\\midrule
     7(K)    & 73.009 & 0.757 & 0.000  & 7.144  & 0.000  \\
     9(K)    & 71.777 & 0.726 & 10.585 & 3.967  & 0.000  \\
     10(K)   & 73.583 & 0.730 & 16.615 & 1.353  & 0.000  \\
@@ -662,7 +704,7 @@ $D_{B0}$             &  -0.7796 &-0.2834 &-0.3896 &-0.1929\\
     43.2(B) & 50.439 & 0.000 & 0.000  & 3.927  & 1.008  \\
     51.1(B) & 52.666 & 0.000 & 0.000  & 2.022  & 1.163  \\
     51.2(B) & 52.101 & 0.000 & 0.000  & 3.305  & 1.615  \\\midrule
-  化学成分                 & \multicolumn{1}{c}{\textbf{氧化铝(Al2O3)}}  & \multicolumn{1}{c}{\textbf{氧化铁(Fe2O3)}} & \multicolumn{1}{c}{\textbf{氧化铜(CuO)}}  & \multicolumn{1}{c}{\textbf{氧化铅(PbO)}}  & \multicolumn{1}{c}{\textbf{氧化钡(BaO)}} \\\midrule
+  样本序号                 & \multicolumn{1}{c}{\textbf{氧化铝(Al2O3)}}  & \multicolumn{1}{c}{\textbf{氧化铁(Fe2O3)}} & \multicolumn{1}{c}{\textbf{氧化铜(CuO)}}  & \multicolumn{1}{c}{\textbf{氧化铅(PbO)}}  & \multicolumn{1}{c}{\textbf{氧化钡(BaO)}} \\\midrule
   7(K)    & 7.398  & 1.350 & 5.543  & 0.449  & 0.651  \\
 9(K)    & 4.727  & 2.436 & 2.541  & 0.430  & 0.624  \\
 10(K)   & 2.920  & 1.992 & 1.386  & 0.433  & 0.628  \\
@@ -692,7 +734,7 @@ $D_{B0}$             &  -0.7796 &-0.2834 &-0.3896 &-0.1929\\
 43.2(B) & 5.814  & 1.324 & 1.084  & 28.034 & 2.814  \\
 51.1(B) & 8.241  & 1.044 & 0.906  & 23.209 & 7.105  \\
 51.2(B) & 4.493  & 0.420 & 0.565  & 33.767 & 0.000  \\\midrule
-  化学成分                 & \multicolumn{1}{c}{\textbf{五氧化二磷(P2O5)}} & \multicolumn{1}{c}{\textbf{氧化锶(SrO)}}   & \multicolumn{1}{c}{\textbf{氧化锡(SnO2)}} & \multicolumn{1}{c}{\textbf{二氧化硫(SO2)}} &                                       \\\midrule
+  样本序号                 & \multicolumn{1}{c}{\textbf{五氧化二磷(P2O5)}} & \multicolumn{1}{c}{\textbf{氧化锶(SrO)}}   & \multicolumn{1}{c}{\textbf{氧化锡(SnO2)}} & \multicolumn{1}{c}{\textbf{二氧化硫(SO2)}} &                                       \\\midrule
   7(K)    & 3.327  & 0.046 & 0.215  & 0.111  &        \\
 9(K)    & 1.830  & 0.044 & 0.206  & 0.106  &        \\
 10(K)   & 0.000  & 0.044 & 0.207  & 0.107  &        \\
