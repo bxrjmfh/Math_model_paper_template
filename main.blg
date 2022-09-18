@@ -1,0 +1,81 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: gbt7714-numerical.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: r.bib
+Warning--entry type for "2" isn't style-file defined
+--line 2 of file r.bib
+Warning--entry type for "6" isn't style-file defined
+--line 57 of file r.bib
+Warning--entry type for "13" isn't style-file defined
+--line 190 of file r.bib
+Warning--entry type for "14" isn't style-file defined
+--line 236 of file r.bib
+Warning--empty year in 4
+Warning--empty year in 4
+Warning--empty year in 5
+Warning--empty year in 5
+Warning--empty year in 10
+Warning--empty year in 10
+Warning--empty year in 12
+Warning--empty year in 12
+Warning--empty author in 2
+Warning--empty author in 4
+Warning--empty author in 5
+Warning--empty author in 6
+Warning--empty year in 7
+Warning--empty year in 8
+Warning--empty year in 9
+Warning--empty author in 10
+Warning--empty author in 12
+Warning--empty author in 13
+Warning--empty author in 14
+You've used 13 entries,
+            5246 wiz_defined-function locations,
+            1080 strings with 10003 characters,
+and the built_in function-call counts, 33243 in all, are:
+= -- 1392
+> -- 2780
+< -- 3849
++ -- 1363
+- -- 386
+* -- 507
+:= -- 4766
+add.period$ -- 45
+call.type$ -- 13
+change.case$ -- 31
+chr.to.int$ -- 1087
+cite$ -- 40
+duplicate$ -- 322
+empty$ -- 970
+format.name$ -- 130
+if$ -- 8845
+int.to.chr$ -- 1
+int.to.str$ -- 14
+missing$ -- 0
+newline$ -- 90
+num.names$ -- 16
+pop$ -- 1029
+preamble$ -- 1
+purify$ -- 13
+quote$ -- 0
+skip$ -- 3130
+stack$ -- 0
+substring$ -- 1789
+swap$ -- 13
+text.length$ -- 116
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 153
+warning$ -- 19
+while$ -- 140
+width$ -- 0
+write$ -- 193
+(There were 23 warnings)
