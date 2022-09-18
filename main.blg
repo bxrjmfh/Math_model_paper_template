@@ -1,0 +1,77 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: gbt7714-numerical.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: r.bib
+Warning--entry type for "2" isn't style-file defined
+--line 2 of file r.bib
+Warning--entry type for "6" isn't style-file defined
+--line 57 of file r.bib
+Warning--I didn't find a database entry for "13"
+Warning--I didn't find a database entry for "14"
+Warning--empty year in 4
+Warning--empty year in 4
+Warning--empty year in 5
+Warning--empty year in 5
+Warning--empty year in 10
+Warning--empty year in 10
+Warning--empty year in 12
+Warning--empty year in 12
+Warning--empty author in 2
+Warning--empty author in 4
+Warning--empty author in 5
+Warning--empty author in 6
+Warning--empty year in 7
+Warning--empty year in 8
+Warning--empty year in 9
+Warning--empty author in 10
+Warning--empty author in 12
+You've used 11 entries,
+            5246 wiz_defined-function locations,
+            1071 strings with 9720 characters,
+and the built_in function-call counts, 31675 in all, are:
+= -- 1241
+> -- 2754
+< -- 3803
++ -- 1322
+- -- 364
+* -- 456
+:= -- 4583
+add.period$ -- 39
+call.type$ -- 11
+change.case$ -- 28
+chr.to.int$ -- 1079
+cite$ -- 34
+duplicate$ -- 270
+empty$ -- 818
+format.name$ -- 130
+if$ -- 8344
+int.to.chr$ -- 1
+int.to.str$ -- 12
+missing$ -- 0
+newline$ -- 78
+num.names$ -- 16
+pop$ -- 987
+preamble$ -- 1
+purify$ -- 11
+quote$ -- 0
+skip$ -- 3006
+stack$ -- 0
+substring$ -- 1723
+swap$ -- 11
+text.length$ -- 107
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 131
+warning$ -- 17
+while$ -- 131
+width$ -- 0
+write$ -- 167
+(There were 21 warnings)

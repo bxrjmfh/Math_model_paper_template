@@ -1,0 +1,93 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[{干福熹等}(2005)]{3}
+{干福熹等}.
+\newblock 中国古代玻璃技术的发展[M/OL].
+\newblock 上海科学技术出版社, 2005\allowbreak[2022-09-16].
+\newblock
+  \url{http://book.ucdrs.superlib.net/views/specific/2929/bookDetail.jsp?dxNumber=000005333381&d=6A48A360DFED20083A546741E97EAAAB&fenlei=18180802}.
+
+\bibitem[2(2022)]{2}
+方差分析[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2022\allowbreak[2022-09-16].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90&oldid=73116586}.
+
+\bibitem[{4([2022])}]{4}
+F-distribution tables[EB/OL].
+\newblock \allowbreak[2022-09-16].
+\newblock \url{http://www.socr.ucla.edu/Applets.dir/F_Table.html}.
+
+\bibitem[{5([2022])}]{5}
+{SPSSAU} - 在线{SPSS分析软件}[EB/OL].
+\newblock \allowbreak[2022-09-17].
+\newblock \url{https://spssau.com/indexs.html}.
+
+\bibitem[6(2022)]{6}
+变异系数[M/OL]//\allowbreak
+维基百科，自由的百科全书.
+\newblock 2022\allowbreak[2022-09-17].
+\newblock
+  \url{https://zh.wikipedia.org/w/index.php?title=%E5%8F%98%E5%BC%82%E7%B3%BB%E6%95%B0&oldid=72175861}.
+
+\bibitem[Hauke et~al.(2011)Hauke and Kossowski]{7}
+HAUKE~J, KOSSOWSKI~T.
+\newblock Comparison of values of pearson's and spearman's correlation
+  coefficients on the same sets of data[J/OL].
+\newblock Quaestiones Geographicae, 30\allowbreak (2):
+  87-93\allowbreak[2022-09-17].
+\newblock \url{https://sciendo.com/article/10.2478/v10117-011-0021-1}.
+
+\bibitem[干福熹\ 等(2007)干福熹, 承焕生, and 李青会]{8}
+干福熹, 承焕生, 李青会.
+\newblock
+  中国古代玻璃的起源——中国最早的古代玻璃研究[J/OL].
+\newblock 中国科学(E辑:技术科学)\allowbreak (3):
+  382-391\allowbreak[2022-09-18].
+\newblock
+  \url{https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFD2007&filename=JEXK200703007&uniplatform=NZKPT&v=B760xYkhXPu73zRrkQUN56HS55jHffIP7RdbV82quAb_ljFkNkJA1g5E0bUswCE7}.
+
+\bibitem[斯琴毕力格\ 等(2013)斯琴毕力格, 李青会, and
+  干福熹]{9}
+斯琴毕力格, 李青会, 干福熹.
+\newblock
+  激光剥蚀-电感耦合等离子体-原子发射光谱/质谱法分析中国古代钾玻璃组分[J/OL].
+\newblock 分析化学, 41\allowbreak (9): 1328-1333\allowbreak[2022-09-18].
+\newblock
+  \url{https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFD2013&filename=FXHX201309009&uniplatform=NZKPT&v=CSLW2rqiFhSGiE25ecZRhVhsHQQiCFImq-FtDocnRGLq7L8XeZCQMlHCjMP-vv1M}.
+
+\bibitem[{10([2022])}]{10}
+k 均值聚类 - {MATLAB} kmeans - {MathWorks} 中国[EB/OL].
+\newblock \allowbreak[2022-09-18].
+\newblock
+  \url{https://ww2.mathworks.cn/help/stats/kmeans.html?s_tid=srchtitle_kmeans_1#bueftl4-1}.
+
+\bibitem[Arthur et~al.(2007)Arthur and Vassilvitskii]{11}
+ARTHUR~D, VASSILVITSKII~S.
+\newblock (k-means++: the advantages of careful seeding[C/OL]//\allowbreak
+BANSAL~N, PRUHS~K, STEIN~C.
+\newblock Proceedings of the Eighteenth Annual {ACM}-{SIAM} Symposium on
+  Discrete Algorithms, {SODA} 2007, New Orleans, Louisiana, {USA}, January 7-9,
+  2007.
+\newblock {SIAM}, 2007: 1027-1035\allowbreak[2022-09-18].
+\newblock \url{http://dl.acm.org/citation.cfm?id=1283383.1283494}.
+
+\bibitem[{12([2022])}]{12}
+F检验[EB/OL].
+\newblock \allowbreak[2022-09-18].
+\newblock
+  \url{https://baike.baidu.com/item/F%E6%A3%80%E9%AA%8C/9910842?qq-pf-to=pcqq.group}.
+
+\end{thebibliography}
